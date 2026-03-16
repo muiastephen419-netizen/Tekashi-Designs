@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — Tekashi Designs</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── STORY ── */
+    .story-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .story-text p { font-size: 1rem; color: var(--gray); line-height: 1.95; margin-bottom: 1.2rem; font-weight: 300; }
+    .story-text p strong { color: var(--white); font-weight: 600; }
+    .story-text p .hl { color: var(--cyan); font-family: var(--font-mono); font-size: 0.88em; }
+    .story-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+
+    /* Profile card */
+    .profile-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 16px; overflow: hidden;
+    }
+    .profile-top {
+      height: 160px;
+      background: linear-gradient(135deg, #0d2535 0%, #0a1820 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .profile-top::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .profile-av {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), #0055cc);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 1.9rem; font-weight: 800;
+      color: var(--bg); box-shadow: 0 0 40px var(--cyan-glow);
+      position: relative; z-index: 2;
+    }
+    .profile-body { padding: 1.8rem 2rem 2rem; }
+    .profile-body h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; }
+    .profile-role { font-family: var(--font-mono); font-size: 0.68rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin: 0.2rem 0 1.2rem; }
+    .profile-body > p { font-size: 0.88rem; color: var(--gray); line-height: 1.8; margin-bottom: 1.5rem; }
+    .profile-links { display: flex; flex-direction: column; }
+    .plink {
+      display: flex; align-items: center; gap: 0.8rem;
+      font-family: var(--font-mono); font-size: 0.73rem;
+      color: var(--gray); text-decoration: none;
+      padding: 0.7rem 0; border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .plink:last-child { border-bottom: none; }
+    .plink:hover { color: var(--cyan); }
+    .plink .icon { color: var(--cyan); width: 16px; text-align: center; }
+
+    /* ── STATS ── */
+    .stats-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden;
+    }
+    .stat-cell {
+      background: var(--bg3); padding: 2.5rem 2rem; text-align: center;
+      transition: background 0.2s;
+    }
+    .stat-cell:hover { background: rgba(0,229,255,0.05); }
+    .stat-cell .num {
+      font-family: var(--font-head); font-size: 2.8rem; font-weight: 800;
+      color: var(--cyan); line-height: 1;
+    }
+    .stat-cell .lbl {
+      font-family: var(--font-mono); font-size: 0.68rem; color: var(--gray2);
+      letter-spacing: 2.5px; text-transform: uppercase; margin-top: 0.5rem;
+    }
+
+    /* ── SKILLS ── */
+    .skills-section { position: relative; z-index: 2; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .skill-cat {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .skill-cat:hover { border-color: rgba(0,229,255,0.25); transform: translateY(-4px); }
+    .skill-cat-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+    .skill-cat h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 1rem; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .spill {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      padding: 0.28rem 0.8rem; border-radius: 3px;
+      border: 1px solid var(--border); color: var(--gray); background: var(--bg3);
+      transition: all 0.2s;
+    }
+    .spill:hover { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
+    .spill.hot { border-color: rgba(0,229,255,0.3); color: var(--cyan); background: var(--cyan-dim); }
+
+    /* ── JOURNEY ── */
+    .journey-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .timeline { max-width: 700px; margin: 0 auto; position: relative; }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--cyan), transparent);
+    }
+    .tl-item { padding-left: 2.5rem; padding-bottom: 3rem; position: relative; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-item::before {
+      content: ''; position: absolute;
+      left: -5px; top: 4px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--cyan);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+    .tl-year {
+      font-family: var(--font-mono); font-size: 0.68rem;
+      color: var(--cyan); letter-spacing: 3px; text-transform: uppercase;
+      margin-bottom: 0.5rem; display: block;
+    }
+    .tl-item h4 { font-family: var(--font-head); font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .tl-item p  { font-size: 0.88rem; color: var(--gray); line-height: 1.8; }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="s-label">Who I Am</div>
+      <h1 class="page-title">About <span class="accent">Me</span></h1>
+      <p class="page-subtitle">The person behind Tekashi Designs — a self-taught web designer on a mission to help Nairobi businesses win online.</p>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-text">
+          <div class="s-label">My Story</div>
+          <h2 class="s-title">Nairobi-Based<br/>Web Designer</h2>
+          <div class="s-line"></div>
+          <p>I'm <strong>Stephen Sila</strong>, the designer and developer behind <span class="hl">Tekashi Designs</span> — a one-person creative studio dedicated to building modern websites for Kenyan businesses and entrepreneurs.</p>
+          <p>I believe that every business, big or small, deserves a website that <strong>looks world-class, loads fast, and actually brings in clients</strong>. I handle everything from design to code to deployment — you just bring the vision.</p>
+          <p>Whether you're a salon owner, a startup, a restaurant, or a professional — I'll build you a site that <strong>stands out</strong> and gets results.</p>
+          <div class="story-btns">
+            <a href="work.html" class="btn-primary">See My Work →</a>
+            <a href="contact.html" class="btn-outline">Hire Me</a>
+          </div>
+        </div>
+        <div>
+          <div class="profile-card">
+            <div class="profile-top">
+              <div class="profile-av">SS</div>
+            </div>
+            <div class="profile-body">
+              <h3>Stephen Sila</h3>
+              <div class="profile-role">// Founder · Tekashi Designs</div>
+              <p>Self-taught web designer based in Nairobi with a passion for building beautiful, functional sites that help local businesses grow online.</p>
+              <div class="profile-links">
+                <a href="mailto:muiastephen419@gmail.com" class="plink">
+                  <span class="icon">✉</span> muiastephen419@gmail.com
+                </a>
+                <a href="https://wa.me/254793755230" class="plink">
+                  <span class="icon">💬</span> +254 793 755 230
+                </a>
+                <a href="#" class="plink">
+                  <span class="icon">📍</span> Nairobi, Kenya
+                </a>
+                <a href="https://github.com/muiastephen419-netizen" target="_blank" class="plink">
+                  <span class="icon">⌥</span> github.com/muiastephen419-netizen
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="section stats-section">
+    <div class="container">
+      <div class="s-label" style="margin-bottom:2rem;">By the Numbers</div>
+      <div class="stats-grid">
+        <div class="stat-cell"><div class="num">5+</div><div class="lbl">Sites Delivered</div></div>
+        <div class="stat-cell"><div class="num">100%</div><div class="lbl">Client Satisfaction</div></div>
+        <div class="stat-cell"><div class="num">24h</div><div class="lbl">Response Time</div></div>
+        <div class="stat-cell"><div class="num">∞</div><div class="lbl">Passion for Code</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section skills-section">
+    <div class="container">
+      <div class="s-label">Tech Stack</div>
+      <h2 class="s-title">My Skills</h2>
+      <div class="s-line"></div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <span class="skill-cat-icon">🧱</span>
+          <h4>Core Languages</h4>
+          <div class="skill-pills">
+            <span class="spill hot">HTML5</span>
+            <span class="spill hot">CSS3</span>
+            <span class="spill hot">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-icon">🎨</span>
+          <h4>Design & Layout</h4>
+          <div class="skill-pills">
+            <span class="spill hot">Responsive Design</span>
+            <span class="spill">CSS Grid & Flexbox</span>
+            <span class="spill">Animations</span>
+            <span class="spill">Google Fonts</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-icon">🛠️</span>
+          <h4>Tools & Deployment</h4>
+          <div class="skill-pills">
+            <span class="spill hot">VS Code</span>
+            <span class="spill hot">GitHub Pages</span>
+            <span class="spill">Git & GitHub</span>
+            <span class="spill">Figma</span>
+            <span class="spill">Live Server</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-icon">📈</span>
+          <h4>Performance</h4>
+          <div class="skill-pills">
+            <span class="spill">SEO Basics</span>
+            <span class="spill">Fast Load Times</span>
+            <span class="spill">Mobile-First</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-icon">💼</span>
+          <h4>Business Skills</h4>
+          <div class="skill-pills">
+            <span class="spill">Client Communication</span>
+            <span class="spill">Project Management</span>
+            <span class="spill">On-time Delivery</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-icon">🚀</span>
+          <h4>Currently Learning</h4>
+          <div class="skill-pills">
+            <span class="spill">React.js</span>
+            <span class="spill">Node.js</span>
+            <span class="spill">UI/UX Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="section journey-section">
+    <div class="container">
+      <div class="s-label">My Journey</div>
+      <h2 class="s-title">How I Got Here</h2>
+      <div class="s-line"></div>
+      <div class="timeline">
+        <div class="tl-item">
+          <span class="tl-year">// 2023</span>
+          <h4>First Line of Code</h4>
+          <p>Started learning HTML and CSS through YouTube and online tutorials. Built my first static webpage — a simple personal page — and got hooked immediately.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">// 2024</span>
+          <h4>First Client Project</h4>
+          <p>Landed my first paid client project. Delivered a business website that the client loved, which gave me the confidence to pursue web design seriously.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">// 2025</span>
+          <h4>Tekashi Designs is Born</h4>
+          <p>Officially launched Tekashi Designs as a freelance web design studio. Started building a portfolio and taking on more ambitious projects.</p>
+        </div>
+        <div class="tl-item">
+          <span class="tl-year">// 2026</span>
+          <h4>Growing & Expanding</h4>
+          <p>Delivered multiple client websites including Wanjiku's Beauty Hub. Continuously improving skills and taking on bigger, more complex projects across Nairobi.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
+    <ul class="footer-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  </footer>
+  <script src="cursor.js"></script>
+</body>
+</html>

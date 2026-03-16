@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Process — Tekashi Designs</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── BIG STEPS ── */
+    .steps-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+    .step-row {
+      background: var(--bg2); display: grid;
+      grid-template-columns: 80px 1fr auto;
+      align-items: center; gap: 2rem; padding: 2.5rem 2.5rem;
+      transition: background 0.2s; cursor: default;
+    }
+    .step-row:hover { background: rgba(0,229,255,0.04); }
+    .step-row.open { background: rgba(0,229,255,0.06); }
+    .step-num-big {
+      font-family: var(--font-head); font-size: 3.5rem; font-weight: 800;
+      color: rgba(0,229,255,0.15); line-height: 1; text-align: center;
+      transition: color 0.2s;
+    }
+    .step-row:hover .step-num-big { color: rgba(0,229,255,0.35); }
+    .step-content h3 { font-family: var(--font-head); font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .step-content .mono { font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.6rem; display: block; }
+    .step-content p { font-size: 0.9rem; color: var(--gray); line-height: 1.8; }
+    .step-icon-big { font-size: 2.5rem; }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .deliverables-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .del-card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .del-card:hover { border-color: rgba(0,229,255,0.25); transform: translateY(-4px); }
+    .del-icon { font-size: 1.8rem; margin-bottom: 0.8rem; display: block; }
+    .del-card h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .del-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.7; }
+
+    /* ── PRICING ── */
+    .pricing-section { position: relative; z-index: 2; }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .price-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2.5rem 2rem;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+    }
+    .price-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+    .price-card.popular {
+      border-color: var(--cyan);
+      box-shadow: 0 0 40px rgba(0,229,255,0.12);
+    }
+    .popular-badge {
+      position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+      font-family: var(--font-mono); font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      background: var(--cyan); color: var(--bg);
+      padding: 0.3rem 1rem; border-radius: 50px;
+    }
+    .price-card h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 800; margin-bottom: 0.4rem; }
+    .price-card .price-tag-mono { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; display: block; }
+    .price-amount { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; color: var(--white); margin-bottom: 0.2rem; }
+    .price-amount span { font-size: 1rem; color: var(--gray); font-weight: 400; font-family: var(--font-body); }
+    .price-card .note { font-family: var(--font-mono); font-size: 0.65rem; color: var(--cyan); letter-spacing: 1px; margin-bottom: 1.5rem; display: block; }
+    .price-features { list-style: none; margin-bottom: 2rem; }
+    .price-features li {
+      font-size: 0.88rem; color: var(--gray);
+      padding: 0.5rem 0; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li::before { content: '✓'; color: var(--cyan); font-family: var(--font-mono); font-size: 0.75rem; flex-shrink: 0; }
+
+    /* ── FAQ ── */
+    .faq-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .faq-list { max-width: 760px; margin: 0 auto; }
+    .faq-item { background: var(--bg3); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 0.8rem; overflow: hidden; }
+    .faq-q {
+      padding: 1.2rem 1.5rem; font-weight: 700; font-size: 0.95rem;
+      color: var(--white); cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: color 0.2s; user-select: none;
+    }
+    .faq-q:hover { color: var(--cyan); }
+    .faq-q .arr { font-family: var(--font-mono); font-size: 1rem; color: var(--cyan); transition: transform 0.3s; }
+    .faq-item.open .faq-q .arr { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.2s;
+      padding: 0 1.5rem; font-size: 0.9rem; color: var(--gray); line-height: 1.85;
+    }
+    .faq-item.open .faq-a { max-height: 300px; padding: 0 1.5rem 1.3rem; }
+
+    @media (max-width: 900px) {
+      .step-row { grid-template-columns: 1fr; gap: 1rem; }
+      .step-num-big { font-size: 2rem; text-align: left; }
+      .deliverables-grid { grid-template-columns: 1fr 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; max-width: 420px; }
+    }
+    @media (max-width: 600px) {
+      .deliverables-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="process.html" class="active">Process</a></li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="s-label">How I Work</div>
+      <h1 class="page-title">My <span class="accent">Process</span></h1>
+      <p class="page-subtitle">From first message to live website — here's exactly how I work with clients to deliver beautiful, results-driven websites on time.</p>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <section class="section">
+    <div class="container">
+      <div class="s-label">Step by Step</div>
+      <h2 class="s-title">How We Build Together</h2>
+      <div class="s-line"></div>
+      <div class="steps-list">
+        <div class="step-row">
+          <div class="step-num-big">01</div>
+          <div class="step-content">
+            <span class="mono">// Discovery</span>
+            <h3>Initial Consultation</h3>
+            <p>We start with a free chat — WhatsApp, call or in-person in Nairobi. I ask about your business, target audience, competitors, and what you need the website to achieve. No jargon, no pressure.</p>
+          </div>
+          <div class="step-icon-big">💬</div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-big">02</div>
+          <div class="step-content">
+            <span class="mono">// Quote</span>
+            <h3>Proposal & Agreement</h3>
+            <p>I send you a clear quote with the project scope, timeline, and price. Once you're happy, we sign a simple agreement and you pay a 50% deposit to kick things off.</p>
+          </div>
+          <div class="step-icon-big">📋</div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-big">03</div>
+          <div class="step-content">
+            <span class="mono">// Design</span>
+            <h3>Design & Structure</h3>
+            <p>I plan the pages, layout, colours, and structure based on your brand and goals. You review and approve the direction before I write a single line of code.</p>
+          </div>
+          <div class="step-icon-big">🎨</div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-big">04</div>
+          <div class="step-content">
+            <span class="mono">// Development</span>
+            <h3>Build & Code</h3>
+            <p>I build your site in clean HTML, CSS & JavaScript — pixel-perfect, fully responsive on mobile, fast-loading, and optimised for search engines. You get progress updates throughout.</p>
+          </div>
+          <div class="step-icon-big">⚡</div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-big">05</div>
+          <div class="step-content">
+            <span class="mono">// Review</span>
+            <h3>Review & Revisions</h3>
+            <p>I share the finished site for your review. You get up to 3 rounds of revisions to make sure every detail is exactly right before we go live.</p>
+          </div>
+          <div class="step-icon-big">🔍</div>
+        </div>
+        <div class="step-row">
+          <div class="step-num-big">06</div>
+          <div class="step-content">
+            <span class="mono">// Launch</span>
+            <h3>Go Live & Handover</h3>
+            <p>Your site goes live! I handle GitHub Pages deployment, domain linking, and hand over all your files. You pay the remaining 50% and get 30 days of free support included.</p>
+          </div>
+          <div class="step-icon-big">🚀</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERABLES -->
+  <section class="section deliverables-section">
+    <div class="container">
+      <div class="s-label">What You Get</div>
+      <h2 class="s-title">Every Project Includes</h2>
+      <div class="s-line"></div>
+      <div class="deliverables-grid">
+        <div class="del-card"><span class="del-icon">📱</span><h4>Fully Responsive</h4><p>Works perfectly on phones, tablets, and desktops — no exceptions.</p></div>
+        <div class="del-card"><span class="del-icon">⚡</span><h4>Fast Loading</h4><p>Clean code means fast pages. Your visitors won't wait around.</p></div>
+        <div class="del-card"><span class="del-icon">🔍</span><h4>SEO Ready</h4><p>Proper titles, meta tags and structure so Google can find you.</p></div>
+        <div class="del-card"><span class="del-icon">📁</span><h4>All Source Files</h4><p>You own your code. All HTML, CSS and JS files handed over on completion.</p></div>
+        <div class="del-card"><span class="del-icon">🌐</span><h4>Free Hosting Setup</h4><p>I deploy to GitHub Pages and connect your domain — free hosting for life.</p></div>
+        <div class="del-card"><span class="del-icon">🛟</span><h4>30-Day Support</h4><p>Free text, image or content updates for 30 days after launch.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section pricing-section">
+    <div class="container">
+      <div class="s-label">Investment</div>
+      <h2 class="s-title">Pricing</h2>
+      <div class="s-line"></div>
+      <div class="pricing-grid">
+        <div class="price-card">
+          <h4>Starter</h4>
+          <span class="price-tag-mono">// Single Page</span>
+          <div class="price-amount">KES 5,000 <span>/ project</span></div>
+          <span class="note">Perfect for freelancers & small businesses</span>
+          <ul class="price-features">
+            <li>1-page website</li>
+            <li>Mobile responsive</li>
+            <li>Contact section</li>
+            <li>GitHub Pages hosting</li>
+            <li>2 revisions</li>
+            <li>Delivered in 5 days</li>
+          </ul>
+          <a href="contact.html" class="btn-outline" style="width:100%;justify-content:center;">Get Started</a>
+        </div>
+        <div class="price-card popular">
+          <div class="popular-badge">Most Popular</div>
+          <h4>Standard</h4>
+          <span class="price-tag-mono">// Multi-Page</span>
+          <div class="price-amount">KES 12,000 <span>/ project</span></div>
+          <span class="note">For businesses serious about online presence</span>
+          <ul class="price-features">
+            <li>Up to 5 pages</li>
+            <li>Photo gallery</li>
+            <li>Booking / contact form</li>
+            <li>Mobile responsive</li>
+            <li>GitHub Pages hosting</li>
+            <li>3 revisions</li>
+            <li>30-day support</li>
+            <li>Delivered in 10 days</li>
+          </ul>
+          <a href="contact.html" class="btn-primary" style="width:100%;justify-content:center;">Get Started →</a>
+        </div>
+        <div class="price-card">
+          <h4>Premium</h4>
+          <span class="price-tag-mono">// Custom Build</span>
+          <div class="price-amount">KES 25,000<span>+</span></div>
+          <span class="note">For complex or large-scale projects</span>
+          <ul class="price-features">
+            <li>Unlimited pages</li>
+            <li>Custom animations</li>
+            <li>Advanced features</li>
+            <li>E-commerce ready</li>
+            <li>SEO optimisation</li>
+            <li>Priority delivery</li>
+            <li>60-day support</li>
+            <li>Timeline: custom</li>
+          </ul>
+          <a href="contact.html" class="btn-outline" style="width:100%;justify-content:center;">Let's Talk</a>
+        </div>
+      </div>
+      <p style="text-align:center;font-family:var(--font-mono);font-size:0.7rem;color:var(--gray2);margin-top:1.5rem;letter-spacing:1px;">// All prices negotiable. Payment via M-Pesa. 50% deposit to start, 50% on delivery.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container">
+      <div class="s-label">Questions</div>
+      <h2 class="s-title">FAQ</h2>
+      <div class="s-line"></div>
+      <div class="faq-list">
+        <div class="faq-item"><div class="faq-q">How do I pay? <span class="arr">+</span></div><div class="faq-a">I accept M-Pesa and bank transfer. Payment is split 50% upfront to begin and 50% on delivery of the final site.</div></div>
+        <div class="faq-item"><div class="faq-q">How long does a website take? <span class="arr">+</span></div><div class="faq-a">A starter single-page site takes about 5 days. A standard multi-page site takes 7–14 days depending on content and complexity. I'll give you an exact timeline in your quote.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need to provide photos and text? <span class="arr">+</span></div><div class="faq-a">Yes — you provide your logo, photos, and the text content. If you don't have photos, I can use high-quality free images from Unsplash that match your brand. I can also help write short copy if needed.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I update the website myself after it's done? <span class="arr">+</span></div><div class="faq-a">Yes! Since I use plain HTML and CSS, you can edit text and images directly in VS Code. I'll walk you through how if needed. More complex changes — just contact me.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I need changes after the site is live? <span class="arr">+</span></div><div class="faq-a">You get 30 days of free support after launch. After that, small updates are charged at KES 500–1,000 depending on the task.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you offer a domain name? <span class="arr">+</span></div><div class="faq-a">I don't sell domains directly but I'll help you buy one from a registrar like GoDaddy or Safaricom and connect it to your site — it usually costs about KES 1,000–2,000 per year.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
+    <ul class="footer-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  </footer>
+  <script src="cursor.js"></script>
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const open = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!open) item.classList.add('open');
+      });
+    });
+  </script>
+</body>
+</html>

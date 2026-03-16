@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reviews — Tekashi Designs</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── RATING SUMMARY ── */
+    .rating-bar {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 3rem;
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 3rem; align-items: center; margin-bottom: 4rem;
+    }
+    .rating-big {
+      text-align: center;
+    }
+    .rating-big .num {
+      font-family: var(--font-head); font-size: 5rem; font-weight: 800;
+      color: var(--cyan); line-height: 1;
+    }
+    .rating-stars { color: var(--cyan); font-size: 1.3rem; letter-spacing: 3px; margin: 0.4rem 0; }
+    .rating-big .total { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; }
+    .rating-bars { display: flex; flex-direction: column; gap: 0.8rem; }
+    .rbar-row { display: flex; align-items: center; gap: 1rem; }
+    .rbar-label { font-family: var(--font-mono); font-size: 0.68rem; color: var(--gray); width: 40px; text-align: right; }
+    .rbar-track { flex: 1; height: 6px; background: var(--bg3); border-radius: 3px; overflow: hidden; }
+    .rbar-fill { height: 100%; background: var(--cyan); border-radius: 3px; transition: width 1s ease; }
+    .rbar-count { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray2); width: 24px; }
+
+    /* ── REVIEWS GRID ── */
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+    }
+    .review-card {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .review-card::before {
+      content: '"'; font-family: var(--font-head); font-size: 5rem;
+      color: var(--cyan); opacity: 0.1; position: absolute;
+      top: 0.5rem; right: 1.2rem; line-height: 1;
+    }
+    .review-card:hover { border-color: rgba(0,229,255,0.25); transform: translateY(-5px); }
+    .review-card.featured { border-color: rgba(0,229,255,0.2); background: rgba(0,229,255,0.04); }
+    .r-stars { color: var(--cyan); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+    .r-text { font-size: 0.92rem; color: var(--gray); line-height: 1.85; font-style: italic; flex: 1; margin-bottom: 1.5rem; }
+    .r-project {
+      font-family: var(--font-mono); font-size: 0.62rem; color: var(--cyan);
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.25rem 0.7rem; background: var(--cyan-dim);
+      border-radius: 3px; display: inline-block; margin-bottom: 1rem;
+    }
+    .r-author { display: flex; align-items: center; gap: 0.8rem; margin-top: auto; }
+    .r-av {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--cyan), #0055cc);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-weight: 700; font-size: 0.9rem; color: var(--bg); flex-shrink: 0;
+    }
+    .r-info strong { display: block; font-size: 0.88rem; color: var(--white); }
+    .r-info span   { font-family: var(--font-mono); font-size: 0.62rem; color: var(--gray2); letter-spacing: 1.5px; text-transform: uppercase; }
+
+    /* ── LEAVE A REVIEW ── */
+    .leave-section { background: var(--bg2); border-top: 1px solid var(--border); }
+    .leave-inner { max-width: 640px; margin: 0 auto; }
+    .leave-inner > p { font-size: 0.95rem; color: var(--gray); line-height: 1.9; margin-bottom: 2rem; }
+    .star-picker { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+    .star-btn {
+      font-size: 1.8rem; cursor: pointer; opacity: 0.3;
+      transition: opacity 0.2s, transform 0.15s; background: none; border: none;
+    }
+    .star-btn.active, .star-btn:hover { opacity: 1; transform: scale(1.2); }
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .leave-submit {
+      width: 100%; padding: 1rem;
+      background: var(--cyan); color: var(--bg);
+      border: none; border-radius: 6px;
+      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; cursor: pointer; margin-top: 0.5rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .leave-submit:hover { box-shadow: 0 0 30px var(--cyan-glow); transform: translateY(-2px); }
+    .leave-success {
+      display: none; padding: 1rem;
+      background: rgba(57,255,20,0.08); border: 1px solid rgba(57,255,20,0.25);
+      border-radius: 6px; font-family: var(--font-mono); font-size: 0.75rem;
+      color: var(--green); letter-spacing: 1px; margin-top: 1rem; text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .rating-bar { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .reviews-grid { grid-template-columns: 1fr; }
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="testimonials.html" class="active">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="s-label">Client Feedback</div>
+      <h1 class="page-title">Client <span class="accent">Reviews</span></h1>
+      <p class="page-subtitle">Don't just take my word for it — here's what real clients say about working with Tekashi Designs.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Rating Summary -->
+      <div class="rating-bar">
+        <div class="rating-big">
+          <div class="num">5.0</div>
+          <div class="rating-stars">★★★★★</div>
+          <div class="total">3 reviews</div>
+        </div>
+        <div class="rating-bars">
+          <div class="rbar-row"><span class="rbar-label">5★</span><div class="rbar-track"><div class="rbar-fill" style="width:100%"></div></div><span class="rbar-count">3</span></div>
+          <div class="rbar-row"><span class="rbar-label">4★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-count">0</span></div>
+          <div class="rbar-row"><span class="rbar-label">3★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-count">0</span></div>
+          <div class="rbar-row"><span class="rbar-label">2★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-count">0</span></div>
+          <div class="rbar-row"><span class="rbar-label">1★</span><div class="rbar-track"><div class="rbar-fill" style="width:0%"></div></div><span class="rbar-count">0</span></div>
+        </div>
+      </div>
+
+      <!-- Reviews Grid -->
+      <div class="reviews-grid">
+        <div class="review-card featured">
+          <div class="r-stars">★★★★★</div>
+          <span class="r-project">Wanjiku's Beauty Hub</span>
+          <p class="r-text">Stephen completely transformed my salon's online presence. The website is stunning — it looks like something a big agency made, not a one-person studio. We've had so many new clients mention they found us online. Worth every shilling!</p>
+          <div class="r-author">
+            <div class="r-av">W</div>
+            <div class="r-info"><strong>Wanjiku Mwangi</strong><span>Beauty Hub · Nairobi</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="r-stars">★★★★★</div>
+          <span class="r-project">Business Website</span>
+          <p class="r-text">Very professional and delivered exactly what was promised, on time. He listened carefully, communicated well throughout and the final result exceeded my expectations. Highly recommended!</p>
+          <div class="r-author">
+            <div class="r-av">J</div>
+            <div class="r-info"><strong>James K.</strong><span>Business Owner · Westlands</span></div>
+          </div>
+        </div>
+        <div class="review-card">
+          <div class="r-stars">★★★★★</div>
+          <span class="r-project">Personal Portfolio</span>
+          <p class="r-text">I had no idea where to start with getting a website. Stephen made the whole process easy and stress-free. The site looks amazing on my phone too! I've already gotten job interview calls from it.</p>
+          <div class="r-author">
+            <div class="r-av">A</div>
+            <div class="r-info"><strong>Amina S.</strong><span>Freelancer · Nairobi</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEAVE A REVIEW -->
+  <section class="section leave-section">
+    <div class="container">
+      <div class="leave-inner">
+        <div class="s-label">Share Your Experience</div>
+        <h2 class="s-title">Leave a Review</h2>
+        <div class="s-line"></div>
+        <p>Worked with me before? I'd love to hear your feedback. Your review helps other businesses in Nairobi make a confident decision.</p>
+        <div class="star-picker" id="starPicker">
+          <button class="star-btn" data-v="1" onclick="setStar(1)">★</button>
+          <button class="star-btn" data-v="2" onclick="setStar(2)">★</button>
+          <button class="star-btn" data-v="3" onclick="setStar(3)">★</button>
+          <button class="star-btn" data-v="4" onclick="setStar(4)">★</button>
+          <button class="star-btn" data-v="5" onclick="setStar(5)">★</button>
+        </div>
+        <div class="form-row-2">
+          <div class="form-group"><label>Your Name</label><input class="form-input" type="text" placeholder="e.g. Grace M." id="rname"/></div>
+          <div class="form-group"><label>Project Type</label><input class="form-input" type="text" placeholder="e.g. Salon Website"/></div>
+        </div>
+        <div class="form-group"><label>Your Review</label><textarea class="form-textarea" placeholder="Tell others about your experience working with Tekashi Designs..."></textarea></div>
+        <button class="leave-submit" onclick="submitReview()">✦ Submit Review</button>
+        <div class="leave-success" id="leaveSuccess">✓ Thank you! Your review has been submitted.</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
+    <ul class="footer-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  </footer>
+  <script src="cursor.js"></script>
+  <script>
+    let selectedStar = 0;
+    function setStar(v) {
+      selectedStar = v;
+      document.querySelectorAll('.star-btn').forEach((b,i) => {
+        b.classList.toggle('active', i < v);
+      });
+    }
+    function submitReview() {
+      const name = document.getElementById('rname').value;
+      if (!name) { alert('Please enter your name.'); return; }
+      document.getElementById('leaveSuccess').style.display = 'block';
+      document.querySelector('.leave-submit').disabled = true;
+      document.querySelector('.leave-submit').style.opacity = '0.4';
+    }
+  </script>
+</body>
+</html>

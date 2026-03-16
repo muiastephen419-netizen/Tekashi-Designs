@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Client Work — Tekashi Designs</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filt {
+      font-family: var(--font-mono); font-size: 0.7rem;
+      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 0.5rem 1.3rem; border-radius: 4px;
+      border: 1px solid var(--border); background: var(--bg3);
+      color: var(--gray); cursor: pointer; transition: all 0.2s;
+    }
+    .filt:hover, .filt.active {
+      background: var(--cyan); color: var(--bg);
+      border-color: var(--cyan); box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    /* ── PROJECTS GRID ── */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .pcard {
+      background: var(--bg2); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .pcard:hover {
+      transform: translateY(-8px);
+      border-color: rgba(0,229,255,0.3);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+    .pcard.featured { grid-column: span 2; }
+    .pcard-img-wrap { overflow: hidden; }
+    .pcard-img {
+      width: 100%; height: 210px; object-fit: cover; display: block;
+      filter: saturate(0.7) brightness(0.85); transition: filter 0.4s, transform 0.5s;
+    }
+    .pcard.featured .pcard-img { height: 280px; }
+    .pcard:hover .pcard-img { filter: saturate(1) brightness(1); transform: scale(1.04); }
+    .pcard-placeholder {
+      width: 100%; height: 210px;
+      display: flex; align-items: center; justify-content: center; font-size: 3rem;
+      position: relative; overflow: hidden;
+    }
+    .pcard-placeholder::before {
+      content: ''; position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+    }
+    .pcard-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .pcard-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
+    .pcard-body h3 {
+      font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
+      color: var(--white); margin-bottom: 0.5rem;
+    }
+    .pcard.featured .pcard-body h3 { font-size: 1.4rem; }
+    .pcard-body p { font-size: 0.87rem; color: var(--gray); line-height: 1.75; flex: 1; margin-bottom: 1.2rem; }
+    .pcard-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 1rem; border-top: 1px solid var(--border);
+    }
+    .pcard-client { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray2); letter-spacing: 1px; }
+    .pcard-link {
+      font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan);
+      text-decoration: none; letter-spacing: 1px;
+      display: flex; align-items: center; gap: 0.3rem;
+      transition: letter-spacing 0.2s;
+    }
+    .pcard-link:hover { letter-spacing: 2px; }
+    .pcard-link.disabled { color: var(--gray2); cursor: default; pointer-events: none; }
+
+    /* ── ADD NEW GUIDE ── */
+    .add-guide {
+      background: var(--bg2); border: 1px dashed rgba(0,229,255,0.2);
+      border-radius: var(--radius); padding: 2.5rem; text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .add-guide:hover { border-color: var(--cyan); background: var(--cyan-dim); }
+    .add-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .add-guide h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .add-guide p { font-size: 0.85rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.2rem; }
+
+    @media (max-width: 900px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .pcard.featured { grid-column: span 2; }
+    }
+    @media (max-width: 600px) {
+      .projects-grid { grid-template-columns: 1fr; }
+      .pcard.featured { grid-column: span 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="site-nav" id="nav">
+    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html" class="active">Work</a></li>
+      <li><a href="process.html">Process</a></li>
+      <li><a href="testimonials.html">Reviews</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-hire">Hire Me</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="s-label">Portfolio</div>
+      <h1 class="page-title">Client <span class="accent">Work</span></h1>
+      <p class="page-subtitle">Real websites built for real Nairobi businesses. Every project is crafted with care, precision and a relentless focus on results.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+
+      <!-- Filter -->
+      <div class="filter-bar">
+        <button class="filt active" onclick="filterCards(this,'all')">All Projects</button>
+        <button class="filt" onclick="filterCards(this,'beauty')">Beauty & Wellness</button>
+        <button class="filt" onclick="filterCards(this,'business')">Business</button>
+        <button class="filt" onclick="filterCards(this,'restaurant')">Restaurant</button>
+        <button class="filt" onclick="filterCards(this,'portfolio')">Portfolio / CV</button>
+      </div>
+
+      <!-- Grid -->
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- 1 — WANJIKU (FEATURED) -->
+        <div class="pcard featured" data-cat="beauty">
+          <div class="pcard-img-wrap">
+            <img class="pcard-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80" alt="Wanjiku's Beauty Hub"/>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag">Beauty & Wellness</span>
+              <span class="tag green">Live</span>
+              <span class="tag">Multi-Page</span>
+              <span class="tag">Gallery</span>
+            </div>
+            <h3>Wanjiku's Beauty Hub</h3>
+            <p>A complete 5-page salon website featuring a cinematic hero banner, 3-column services grid, masonry photo gallery with lightbox, booking form, team section, FAQ accordion and full price list. Built in pure HTML, CSS & JavaScript.</p>
+            <div class="pcard-footer">
+              <span class="pcard-client">CLIENT // Wanjiku Mwangi · Nairobi</span>
+              <a href="https://muiastephen419-netizen.github.io/wanjiku-s-beauty-hub/" target="_blank" class="pcard-link">View Live Site →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 — OPEN SLOT: Restaurant -->
+        <div class="pcard" data-cat="restaurant">
+          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#0d1a10,#111820);">🍽️</div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag orange">Open Slot</span>
+              <span class="tag">Restaurant</span>
+            </div>
+            <h3>Restaurant / Café Website</h3>
+            <p>A full menu, photo gallery, reservation booking, Google Maps integration and mobile-first design for a Nairobi restaurant or café.</p>
+            <div class="pcard-footer">
+              <span class="pcard-client">SLOT // Available</span>
+              <a href="contact.html" class="pcard-link">Get a Quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — OPEN SLOT: Business -->
+        <div class="pcard" data-cat="business">
+          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#0d1525,#111820);">🏢</div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag orange">Open Slot</span>
+              <span class="tag">Business / Corporate</span>
+            </div>
+            <h3>Business / Corporate Site</h3>
+            <p>A clean, professional website for your company — services, about, team, contact form and strong branding to attract serious clients.</p>
+            <div class="pcard-footer">
+              <span class="pcard-client">SLOT // Available</span>
+              <a href="contact.html" class="pcard-link">Get a Quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — OPEN SLOT: Portfolio -->
+        <div class="pcard" data-cat="portfolio">
+          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#1a1a0a,#111820);">💼</div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag orange">Open Slot</span>
+              <span class="tag">Portfolio / CV</span>
+            </div>
+            <h3>Personal Portfolio / CV Site</h3>
+            <p>A sleek personal website to showcase your skills, projects and CV — perfect for job seekers and freelancers wanting to stand out.</p>
+            <div class="pcard-footer">
+              <span class="pcard-client">SLOT // Available</span>
+              <a href="contact.html" class="pcard-link">Get a Quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 — OPEN SLOT: Beauty -->
+        <div class="pcard" data-cat="beauty">
+          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#1a0d18,#111820);">💅</div>
+          <div class="pcard-body">
+            <div class="pcard-tags">
+              <span class="tag orange">Open Slot</span>
+              <span class="tag">Beauty & Wellness</span>
+            </div>
+            <h3>Spa / Barbershop / Clinic</h3>
+            <p>Elegant website for wellness businesses — service menu, booking system, photo gallery and testimonials to attract more clients.</p>
+            <div class="pcard-footer">
+              <span class="pcard-client">SLOT // Available</span>
+              <a href="contact.html" class="pcard-link">Get a Quote →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADD NEW card -->
+        <div class="add-guide" data-cat="all">
+          <span class="add-icon">＋</span>
+          <h4>Your Project Here</h4>
+          <p>This slot is open for the next client. Ready to take your business online? Let's build something amazing together.</p>
+          <a href="contact.html" class="btn-primary">Start a Project →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
+    <ul class="footer-nav">
+      <li><a href="about.html">About</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  </footer>
+
+  <script src="cursor.js"></script>
+  <script>
+    function filterCards(btn, cat) {
+      document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#projectsGrid > *').forEach(card => {
+        const c = card.dataset.cat;
+        card.style.display = (cat === 'all' || c === cat || c === 'all') ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
