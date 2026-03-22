@@ -3,9 +3,20 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact — Tekashi Designs</title>
+  <title>Contact — Tekashi Designs | Hire a Web Designer Nairobi</title>
+  <meta name="description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
+  <meta name="keywords" content="contact web designer Nairobi, hire web designer Kenya, Tekashi Designs contact, WhatsApp web designer Nairobi"/>
+  <meta name="author" content="Tekashi Designs — Stephen Sila"/>
+  <meta name="robots" content="index, follow"/>
+  <meta property="og:title" content="Contact — Tekashi Designs | Hire a Web Designer Nairobi"/>
+  <meta property="og:description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
+  <meta property="og:url" content="https://muiastephen419-netizen.github.io/Tekashi-Designs/contact.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="en_KE"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Contact — Tekashi Designs | Hire a Web Designer Nairobi"/>
+  <meta name="twitter:description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
   <link rel="stylesheet" href="style.css"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
   <style>
     /* ── CONTACT LAYOUT ── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
@@ -144,11 +155,11 @@
                 <span>+254 793 755 230</span>
               </div>
             </a>
-            <a href="/cdn-cgi/l/email-protection#2e435b474f5d5a4b5e464b401a1f176e49434f4742004d4143" class="c-card">
+            <a href="mailto:muiastephen419@gmail.com" class="c-card">
               <div class="c-card-icon">✉</div>
               <div class="c-card-text">
                 <strong>Email</strong>
-                <span><span class="__cf_email__" data-cfemail="5538203c34262130253d303b61646c153238343c397b363a38">[email&#160;protected]</span></span>
+                <span>muiastephen419@gmail.com</span>
               </div>
             </a>
             <a href="https://github.com/muiastephen419-netizen" target="_blank" class="c-card">
@@ -176,7 +187,7 @@
 
           <div class="social-row">
             <a href="https://wa.me/254793755230" target="_blank" class="soc-btn" title="WhatsApp">💬</a>
-            <a href="/cdn-cgi/l/email-protection#315c4458504245544159545f05000871565c50585d1f525e5c" class="soc-btn" title="Email">✉</a>
+            <a href="mailto:muiastephen419@gmail.com" class="soc-btn" title="Email">✉</a>
             <a href="https://github.com/muiastephen419-netizen" target="_blank" class="soc-btn" title="GitHub">⌥</a>
           </div>
         </div>
@@ -247,11 +258,19 @@
     </ul>
     <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
   </footer>
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="cursor.js"></script>
+  <script src="cursor.js"></script>
   <script>
     function selectBudget(btn) {
       document.querySelectorAll('.budget-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     }
     function sendMsg() {
-      const name = document.getElementById('cname').valu
+      const name = document.getElementById('cname').value;
+      if (!name) { alert('Please enter your name.'); return; }
+      document.getElementById('formSuccess').style.display = 'block';
+      document.querySelector('.form-submit').disabled = true;
+      document.querySelector('.form-submit').style.opacity = '0.4';
+    }
+  </script>
+</body>
+</html>
