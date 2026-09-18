@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get started — Grovewell</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&family=Outfit:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body data-page="contact">
+  <div class="wrap">
+    <header class="header" id="site-header"></header>
+    <main class="page">
+      <div class="welcome-grid">
+        <div>
+          <p class="kicker">Get started</p>
+          <h1>Write as if we already share a porch.</h1>
+          <p class="lede">Tell us the weather you want to live in. We will answer with a short list — or an honest no, if the book has nothing that fits.</p>
+          <p class="lede" style="margin-top:2rem"><strong>Atelier</strong><br>412 SE Division Street<br>Portland, Oregon 97202</p>
+          <p class="lede"><strong>Hours</strong><br>Tuesday–Friday, 10–4, by appointment</p>
+          <p class="lede"><strong>Desk</strong><br><a href="mailto:hello@grovewell.homes">hello@grovewell.homes</a><br>503-555-0142</p>
+        </div>
+        <div class="aside" id="contact-card">
+          <form class="form" id="contact-form">
+            <label><span>Name</span><input name="name" required></label>
+            <label><span>Email</span><input name="email" type="email" required></label>
+            <label><span>Phone</span><input name="phone" type="tel"></label>
+            <label><span>Region in mind</span><input name="region" placeholder="Cascades, Gorge, coast…"></label>
+            <label>
+              <span>Home type</span>
+              <select name="type">
+                <option value="">No preference yet</option>
+                <option>Lodge</option>
+                <option>House</option>
+                <option>Cabin</option>
+                <option>Estate</option>
+              </select>
+            </label>
+            <label><span>How you want to live</span><textarea name="note" required></textarea></label>
+            <button class="btn btn-lg" type="submit">Send to the desk</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer class="footer" id="site-footer"></footer>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/site.js"></script>
+</body>
+</html>
