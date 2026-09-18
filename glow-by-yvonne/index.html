@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+  <meta name="theme-color" content="#f4f0e9">
+  <meta name="description" content="Glow by Yvonne — considered lash sets, natural lash rituals, and one-on-one appointments in Nairobi.">
+  <title>Glow by Yvonne · Lash Studio Nairobi</title>
+  <style>
+    :root {
+      --bg: #f4f0e9;
+      --bg-dark: #2c2419;
+      --text: #1a1510;
+      --text-muted: #5c534a;
+      --accent: #8b5a4a;
+      --accent-soft: #c4a484;
+      --lime: #c8d96f;
+      --white: #ffffff;
+      --nav-height: 72px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ========== HEADER ========== */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background: rgba(244, 240, 233, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    @media (min-width: 900px) {
+      header { padding: 0 48px; }
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: #e8ddd0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .logo-text strong {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-text span {
+      font-size: 9px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-family: system-ui, sans-serif;
+    }
+
+    .nav-desktop {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+
+    @media (min-width: 900px) {
+      .nav-desktop { display: flex; }
+    }
+
+    .nav-desktop a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 12px;
+      font-family: system-ui, sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .nav-desktop a:hover,
+    .nav-desktop a.active { color: var(--accent); }
+
+    .nav-desktop a.active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px; left: 0; right: 0;
+      height: 1.5px;
+      background: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .phone {
+      display: none;
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    @media (min-width: 1100px) {
+      .phone { display: flex; align-items: center; gap: 6px; }
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-dark {
+      background: #1a1510;
+      color: var(--white);
+    }
+
+    .btn-dark:hover {
+      background: #2c2419;
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid rgba(0,0,0,0.18);
+    }
+
+    .btn-outline:hover { border-color: var(--text); }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: 4px;
+    }
+
+    @media (min-width: 900px) {
+      .menu-toggle { display: none; }
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: 0.25s;
+    }
+
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0; bottom: 0;
+      background: var(--bg);
+      z-index: 999;
+      padding: 32px 24px;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .nav-mobile.open { display: flex; }
+
+    .nav-mobile a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 22px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      font-weight: 400;
+    }
+
+    .nav-mobile .btn {
+      margin-top: 24px;
+      width: 100%;
+      padding: 16px;
+      font-size: 13px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: calc(var(--nav-height) + 40px) 24px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+        padding: calc(var(--nav-height) + 60px) 48px 80px;
+      }
+    }
+
+    .hero-label {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .hero-label::before {
+      content: "";
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      flex-shrink: 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 9vw, 72px);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -1.2px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .hero-note {
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-visual { order: -1; }
+
+    @media (min-width: 900px) {
+      .hero-visual { order: 0; }
+    }
+
+    .hero-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      aspect-ratio: 3/4;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-card-overlay {
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(255,255,255,0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+      color: white;
+      pointer-events: none;
+    }
+
+    .hero-card-label {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    }
+
+    .hero-card-title {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.4px;
+      text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    }
+
+    section {
+      padding: 70px 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 900px) {
+      section { padding: 100px 48px; }
+    }
+
+    .section-label {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.8px;
+      margin-bottom: 20px;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .approach { display: grid; gap: 24px; }
+
+    @media (min-width: 800px) {
+      .approach {
+        grid-template-columns: 180px 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+    }
+
+    .approach-side {
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      color: var(--text-muted);
+    }
+
+    .approach-content p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.75;
+      margin-top: 16px;
+    }
+
+    .look-index { display: grid; gap: 40px; }
+
+    @media (min-width: 900px) {
+      .look-index {
+        grid-template-columns: 1fr 1.15fr;
+        gap: 60px;
+        align-items: center;
+      }
+    }
+
+    .look-list { list-style: none; }
+
+    .look-list li {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: default;
+      transition: color 0.2s;
+    }
+
+    .look-list li:hover { color: var(--accent); }
+
+    .look-list li span.num {
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-right: 14px;
+    }
+
+    .look-list li strong { font-size: 18px; font-weight: 400; }
+
+    .look-preview {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #d4c4b0;
+    }
+
+    .look-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .look-preview-tag {
+      position: absolute;
+      top: 16px; right: 16px;
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      background: rgba(0,0,0,0.45);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .look-preview-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 24px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.55));
+      color: white;
+    }
+
+    .look-preview-caption .label {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      opacity: 0.9;
+      margin-bottom: 4px;
+    }
+
+    .look-preview-caption .title { font-size: 28px; font-weight: 400; }
+
+    .studio-note {
+      background: var(--bg-dark);
+      color: #e8e0d4;
+      padding: 70px 24px;
+      margin: 0;
+      max-width: none;
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 800px) {
+      .studio-note {
+        grid-template-columns: 140px 1fr 1fr;
+        gap: 40px;
+        align-items: center;
+        padding: 100px 48px;
+      }
+    }
+
+    .studio-note .monogram {
+      font-size: 56px;
+      font-style: italic;
+      color: #c4a484;
+      opacity: 0.75;
+    }
+
+    .studio-note h2 {
+      font-size: clamp(36px, 6vw, 60px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .studio-note h2 span { color: var(--lime); }
+
+    .studio-note p {
+      font-size: 15px;
+      line-height: 1.7;
+      opacity: 0.9;
+      max-width: 360px;
+      margin-bottom: 20px;
+    }
+
+    .studio-note a {
+      color: #e8e0d4;
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      padding-bottom: 3px;
+    }
+
+    .studio-note a:hover { border-color: #e8e0d4; }
+
+    .services-intro { margin-bottom: 48px; }
+
+    .services-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    @media (min-width: 700px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (min-width: 1100px) {
+      .services-grid { grid-template-columns: 1fr 1fr 1fr; }
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card-img {
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      background: #e0d5c8;
+    }
+
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover .service-card-img img { transform: scale(1.04); }
+
+    .service-card-body {
+      padding: 22px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card-body .num {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .service-card-body h3 {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .service-card-body p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex: 1;
+      margin-bottom: 16px;
+    }
+
+    .service-card-body .price {
+      font-family: system-ui, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pricing-note {
+      margin-top: 32px;
+      font-family: system-ui, sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .full-menu {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 28px 24px;
+      box-shadow: 0 6px 30px rgba(0,0,0,0.04);
+      margin-top: 48px;
+    }
+
+    @media (min-width: 700px) {
+      .full-menu { padding: 36px; }
+    }
+
+    .full-menu-header {
+      display: flex;
+      justify-content: space-between;
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      gap: 12px;
+    }
+
+    .price-row:last-of-type { border-bottom: none; }
+
+    .price-row .left {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .price-row .num {
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .price-row strong { font-size: 16px; font-weight: 400; }
+
+    .price-row .desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      width: 100%;
+      margin-top: 2px;
+    }
+
+    .price-row .price {
+      font-family: system-ui, sans-serif;
+      font-size: 15px;
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    .cta-band {
+      text-align: center;
+      padding: 90px 24px;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .cta-band h2 {
+      font-size: clamp(34px, 6vw, 52px);
+      font-weight: 400;
+      letter-spacing: -0.8px;
+      margin-bottom: 16px;
+    }
+
+    .cta-band p {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      line-height: 1.7;
+    }
+
+    .cta-band .btn {
+      padding: 14px 28px;
+      font-size: 12px;
+    }
+
+    footer {
+      background: var(--bg);
+      border-top: 1px solid rgba(0,0,0,0.06);
+      padding: 50px 24px 30px;
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      gap: 32px;
+    }
+
+    @media (min-width: 700px) {
+      footer {
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 40px;
+        padding: 60px 48px 40px;
+      }
+    }
+
+    footer .brand strong {
+      font-size: 17px;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    footer .brand p {
+      font-size: 14px;
+      color: var(--text-muted);
+      max-width: 280px;
+    }
+
+    footer h4 {
+      font-family: system-ui, sans-serif;
+      font-size: 11px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    footer ul { list-style: none; }
+    footer ul li { margin-bottom: 10px; }
+
+    footer a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+    }
+
+    footer a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 900;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    .wa-float:hover { transform: scale(1.08); }
+    .wa-float svg { width: 28px; height: 28px; fill: currentColor; }
+
+    @media (min-width: 900px) {
+      .wa-float { bottom: 32px; right: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#home" class="logo">
+      <div class="logo-mark">g✦y</div>
+      <div class="logo-text">
+        <strong>Glow by Yvonne</strong>
+        <span>Lash Studio · Nairobi</span>
+      </div>
+    </a>
+
+    <nav class="nav-desktop">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:+254703491100" class="phone">+254 703 491 100</a>
+      <a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment."
+         class="btn btn-dark"
+         target="_blank"
+         rel="noopener">Book Appointment ↗</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" id="navMobile">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#about" onclick="closeMenu()">About</a>
+    <a href="#services" onclick="closeMenu()">Services</a>
+    <a href="#contact" onclick="closeMenu()">Contact</a>
+    <a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment."
+       class="btn btn-dark"
+       target="_blank"
+       rel="noopener"
+       onclick="closeMenu()">Book on WhatsApp ↗</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div>
+      <div class="hero-label">Enhancing natural beauty · Nairobi</div>
+      <h1>Your eyes,<br>with a little<br><em>more light.</em></h1>
+      <p class="hero-desc">Personalised lash sets and natural lash rituals, shaped around your features, your rhythm, and the version of you you want to meet in the mirror.</p>
+      <div class="hero-ctas">
+        <a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment."
+           class="btn btn-dark"
+           target="_blank"
+           rel="noopener">Book on WhatsApp ↗</a>
+        <a href="#services" class="btn btn-outline">Explore Services ↓</a>
+      </div>
+      <div class="hero-note">✦ Advance booking · One-on-one appointments</div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <img src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg"
+             alt="Close-up beauty portrait with softly lifted lashes"
+             width="1536" height="1920">
+        <div class="hero-card-overlay">
+          <div class="hero-card-label">01 / 04</div>
+          <div class="hero-card-title">Soft Definition</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="approach">
+      <div class="approach-side">[ 01 — The Approach ]</div>
+      <div class="approach-content">
+        <div class="section-label">The Glow Approach</div>
+        <h2 class="section-title">Beautiful lashes should<br>still feel <em>like you.</em></h2>
+        <p>Every appointment begins with a closer look: your natural lash line, the shape of your eyes, and the small details that make your face yours. Then we build a set that fits—not just photographs well.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="look-index">
+      <div>
+        <div class="section-label">The Look Index</div>
+        <h2 class="section-title">Find your <em>finish.</em></h2>
+        <ul class="look-list">
+          <li>
+            <div><span class="num">01</span> <strong>Classic</strong></div>
+            <span>→</span>
+          </li>
+          <li>
+            <div><span class="num">02</span> <strong>Hybrid</strong></div>
+            <span>→</span>
+          </li>
+          <li>
+            <div><span class="num">03</span> <strong>Wispy</strong></div>
+            <span>→</span>
+          </li>
+        </ul>
+        <p style="margin-top: 24px;">
+          <a href="#services" style="font-family:system-ui,sans-serif;font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--text);text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.2);padding-bottom:3px;">See the full menu ↗</a>
+        </p>
+      </div>
+      <div class="look-preview">
+        <img src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg"
+             alt="Soft natural lash look">
+        <div class="look-preview-tag">From KSh 550</div>
+        <div class="look-preview-caption">
+          <div class="label">The Everyday Signature</div>
+          <div class="title">Classic</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="studio-note">
+    <div class="monogram">gy</div>
+    <div>
+      <h2>Less<br>mask.<br><span>More<br>you.</span></h2>
+    </div>
+    <div>
+      <p>We believe the best lash work is felt before it is noticed: comfortable, considered, and quietly confidence-building.</p>
+      <a href="#contact">Plan your visit ↗</a>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="services-intro">
+      <div class="section-label">The Service Menu</div>
+      <h2 class="section-title">Choose your <em>finish.</em></h2>
+      <p style="color:var(--text-muted);max-width:480px;line-height:1.7;margin-top:12px;">
+        Simple pricing, considered sets, and a little guidance when you need it. Explore the menu and tell us what feels most like you.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg" alt="Classic lash set">
+        </div>
+        <div class="service-card-body">
+          <div class="num">01 — Lash sets</div>
+          <h3>Classic set</h3>
+          <p>Clean, natural definition with a timeless finish. One-to-one for a softly elongated look.</p>
+          <div class="price">KSh 550</div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Hybrid volume lashes">
+        </div>
+        <div class="service-card-body">
+          <div class="num">02 — Lash sets</div>
+          <h3>Mid volume (hybrid)</h3>
+          <p>A soft blend of one-to-one and textured volume for everyday fullness.</p>
+          <div class="price">KSh 650</div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg" alt="Volume lash set">
+        </div>
+        <div class="service-card-body">
+          <div class="num">03 — Lash sets</div>
+          <h3>Volume set</h3>
+          <p>Fuller, plush texture with a comfortable finish that still feels like you.</p>
+          <div class="price">KSh 750</div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Wispy volume lashes">
+        </div>
+        <div class="service-card-body">
+          <div class="num">04 — Lash sets</div>
+          <h3>Volume wispy</h3>
+          <p>Airy spikes and layered fullness for a little drama without the mask.</p>
+          <div class="price">KSh 950</div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg" alt="Lash lift and tint">
+        </div>
+        <div class="service-card-body">
+          <div class="num">05 — Natural rituals</div>
+          <h3>Lash lift + tint</h3>
+          <p>Open up the eye with a natural curl and soft tint. Perfect for a fresh start.</p>
+          <div class="price">KSh 1,500</div>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80" alt="Lash removal">
+        </div>
+        <div class="service-card-body">
+          <div class="num">06 — Care</div>
+          <h3>Lash removal</h3>
+          <p>A gentle, professional removal for a clean reset when you’re ready.</p>
+          <div class="price">KSh 200</div>
+        </div>
+      </article>
+    </div>
+
+    <div class="full-menu">
+      <div class="full-menu-header">
+        <span>Signature Menu</span>
+        <span>01—06</span>
+      </div>
+
+      <div class="price-row">
+        <div class="left">
+          <span class="num">01</span>
+          <strong>Classic set</strong>
+          <div class="desc">Clean, natural definition with a timeless finish.</div>
+        </div>
+        <div class="price">KSh 550</div>
+      </div>
+      <div class="price-row">
+        <div class="left">
+          <span class="num">02</span>
+          <strong>Mid volume (hybrid)</strong>
+          <div class="desc">A soft blend of one-to-one and textured volume.</div>
+        </div>
+        <div class="price">KSh 650</div>
+      </div>
+      <div class="price-row">
+        <div class="left">
+          <span class="num">03</span>
+          <strong>Volume set</strong>
+          <div class="desc">Fuller, plush texture with a comfortable finish.</div>
+        </div>
+        <div class="price">KSh 750</div>
+      </div>
+      <div class="price-row">
+        <div class="left">
+          <span class="num">04</span>
+          <strong>Volume wispy</strong>
+          <div class="desc">Airy spikes and layered fullness for a little drama.</div>
+        </div>
+        <div class="price">KSh 950</div>
+      </div>
+      <div class="price-row">
+        <div class="left">
+          <span class="num">05</span>
+          <strong>Lash lift + tint</strong>
+          <div class="desc">Open up the eye with a natural curl and soft tint.</div>
+        </div>
+        <div class="price">KSh 1,500</div>
+      </div>
+      <div class="price-row">
+        <div class="left">
+          <span class="num">06</span>
+          <strong>Lash removal</strong>
+          <div class="desc">Gentle professional removal for a clean reset.</div>
+        </div>
+        <div class="price">KSh 200</div>
+      </div>
+    </div>
+
+    <p class="pricing-note">
+      Coloured lashes add-on: <strong>KSh 100</strong> · Advance booking required for all appointments
+    </p>
+  </section>
+
+  <div class="cta-band" id="contact">
+    <div class="section-label">Your Next Look</div>
+    <h2>Ready for your<br>glow?</h2>
+    <p>Send your preferred date, time, and lash set on WhatsApp. We’ll take it from there.</p>
+    <a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment.%20Preferred%20date%3A%20%0APreferred%20time%3A%20%0ALash%20set%3A%20"
+       class="btn btn-dark"
+       target="_blank"
+       rel="noopener">Message on WhatsApp ↗</a>
+  </div>
+
+  <footer>
+    <div class="brand">
+      <strong>Glow by Yvonne</strong>
+      <p>Thoughtful lash design for eyes that still feel like yours.</p>
+    </div>
+    <div>
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Let’s plan your glow</h4>
+      <ul>
+        <li><a href="tel:+254703491100">+254 703 491 100</a></li>
+        <li><a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener">WhatsApp booking</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Glow by Yvonne</span>
+      <span>Nairobi · Advance booking required</span>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/254703491100?text=Hi%20Glow%20by%20Yvonne%2C%20I%27d%20like%20to%20book%20an%20appointment."
+     class="wa-float"
+     target="_blank"
+     rel="noopener"
+     aria-label="Book on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('navMobile');
+
+    toggle.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+      const spans = toggle.querySelectorAll('span');
+      if (mobileNav.classList.contains('open')) {
+        spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    });
+
+    function closeMenu() {
+      mobileNav.classList.remove('open');
+      const spans = toggle.querySelectorAll('span');
+      spans[0].style.transform = '';
+      spans[1].style.opacity = '';
+      spans[2].style.transform = '';
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 900) closeMenu();
+    });
+  </script>
+</body>
+</html>
