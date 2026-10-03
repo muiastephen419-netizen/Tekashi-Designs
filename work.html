@@ -4,306 +4,154 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Client Work — Tekashi Designs | Web Design Portfolio Nairobi</title>
-  <meta name="description" content="View real websites built for Nairobi businesses by Tekashi Designs. Salon websites, restaurant websites, portfolio sites and more. All built in HTML, CSS and JavaScript."/>
-  <meta name="keywords" content="web design portfolio Nairobi, websites for businesses Kenya, salon website Nairobi, restaurant website Nairobi"/>
+  <meta name="description" content="View real websites built for Nairobi businesses by Tekashi Designs."/>
   <meta name="author" content="Tekashi Designs — Stephen Sila"/>
-  <meta name="robots" content="index, follow"/>
-  <meta property="og:title" content="Client Work — Tekashi Designs | Web Design Portfolio Nairobi"/>
-  <meta property="og:description" content="View real websites built for Nairobi businesses by Tekashi Designs. Salon websites, restaurant websites, portfolio sites and more. All built in HTML, CSS and JavaScript."/>
-  <meta property="og:url" content="https://muiastephen419-netizen.github.io/Tekashi-Designs/work.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:locale" content="en_KE"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Client Work — Tekashi Designs | Web Design Portfolio Nairobi"/>
-  <meta name="twitter:description" content="View real websites built for Nairobi businesses by Tekashi Designs. Salon websites, restaurant websites, portfolio sites and more. All built in HTML, CSS and JavaScript."/>
+  <meta name="theme-color" content="#e10600"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <style>
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      display: flex; gap: 0.6rem; flex-wrap: wrap;
-      margin-bottom: 3rem;
-    }
-    .filt {
-      font-family: var(--font-mono); font-size: 0.7rem;
-      font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 0.5rem 1.3rem; border-radius: 4px;
-      border: 1px solid var(--border); background: var(--bg3);
-      color: var(--gray); cursor: pointer; transition: all 0.2s;
-    }
-    .filt:hover, .filt.active {
-      background: var(--cyan); color: var(--bg);
-      border-color: var(--cyan); box-shadow: 0 0 16px var(--cyan-glow);
-    }
-
-    /* ── PROJECTS GRID ── */
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
-    }
-    .pcard {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    }
-    .pcard:hover {
-      transform: translateY(-8px);
-      border-color: rgba(0,229,255,0.3);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-    }
-    .pcard.featured { grid-column: span 2; }
-    .pcard-img-wrap { overflow: hidden; }
-    .pcard-img {
-      width: 100%; height: 210px; object-fit: cover; display: block;
-      filter: saturate(0.7) brightness(0.85); transition: filter 0.4s, transform 0.5s;
-    }
-    .pcard.featured .pcard-img { height: 280px; }
-    .pcard:hover .pcard-img { filter: saturate(1) brightness(1); transform: scale(1.04); }
-    .pcard-placeholder {
-      width: 100%; height: 210px;
-      display: flex; align-items: center; justify-content: center; font-size: 3rem;
-      position: relative; overflow: hidden;
-    }
-    .pcard-placeholder::before {
-      content: ''; position: absolute; inset: 0;
-      background-image:
-        linear-gradient(rgba(0,229,255,0.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,229,255,0.05) 1px, transparent 1px);
-      background-size: 22px 22px;
-    }
-    .pcard-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .pcard-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.8rem; }
-    .pcard-body h3 {
-      font-family: var(--font-head); font-size: 1.15rem; font-weight: 700;
-      color: var(--white); margin-bottom: 0.5rem;
-    }
-    .pcard.featured .pcard-body h3 { font-size: 1.4rem; }
-    .pcard-body p { font-size: 0.87rem; color: var(--gray); line-height: 1.75; flex: 1; margin-bottom: 1.2rem; }
-    .pcard-footer {
-      display: flex; align-items: center; justify-content: space-between;
-      padding-top: 1rem; border-top: 1px solid var(--border);
-    }
-    .pcard-client { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray2); letter-spacing: 1px; }
-    .pcard-link {
-      font-family: var(--font-mono); font-size: 0.7rem; color: var(--cyan);
-      text-decoration: none; letter-spacing: 1px;
-      display: flex; align-items: center; gap: 0.3rem;
-      transition: letter-spacing 0.2s;
-    }
-    .pcard-link:hover { letter-spacing: 2px; }
-    .pcard-link.disabled { color: var(--gray2); cursor: default; pointer-events: none; }
-
-    /* ── ADD NEW GUIDE ── */
-    .add-guide {
-      background: var(--bg2); border: 1px dashed rgba(0,229,255,0.2);
-      border-radius: var(--radius); padding: 2.5rem; text-align: center;
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .add-guide:hover { border-color: var(--cyan); background: var(--cyan-dim); }
-    .add-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
-    .add-guide h4 { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .add-guide p { font-size: 0.85rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.2rem; }
-
-    @media (max-width: 900px) {
-      .projects-grid { grid-template-columns: 1fr 1fr; }
-      .pcard.featured { grid-column: span 2; }
-    }
-    @media (max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .pcard.featured { grid-column: span 1; }
-    }
-  </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <nav class="site-nav" id="nav">
-    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="work.html" class="active">Work</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="testimonials.html">Reviews</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-hire">Hire Me</a>
-  </nav>
-
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="s-label">Portfolio</div>
-      <h1 class="page-title">Client <span class="accent">Work</span></h1>
-      <p class="page-subtitle">Real websites built for real Nairobi businesses. Every project is crafted with care, precision and a relentless focus on results.</p>
+  <header class="site-header">
+    <div class="page-wrap header-inner">
+      <a class="logo" href="index.html">T<span class="text-accent">.</span></a>
+      <nav class="nav-desktop" aria-label="Primary">
+          <a class="nav-link is-active" href="work.html">Work</a>
+          <a class="nav-link" href="index.html#services">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="process.html">Experience</a>
+          <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn-talk" href="contact.html">Let's Talk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
+      </div>
     </div>
-  </div>
-
-  <section class="section">
-    <div class="container">
-
-      <!-- Filter -->
-      <div class="filter-bar">
-        <button class="filt active" onclick="filterCards(this,'all')">All Projects</button>
-        <button class="filt" onclick="filterCards(this,'beauty')">Beauty & Wellness</button>
-        <button class="filt" onclick="filterCards(this,'business')">Business</button>
-        <button class="filt" onclick="filterCards(this,'restaurant')">Restaurant</button>
-        <button class="filt" onclick="filterCards(this,'portfolio')">Portfolio / CV</button>
+    <div class="mobile-nav" id="mobileNav">
+      <nav class="page-wrap" aria-label="Mobile">
+        <a href="work.html">Work</a>
+        <a href="index.html#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="process.html">Experience</a>
+        <a href="contact.html">Contact</a>
+        <p style="padding:0.5rem 0 1rem;color:var(--muted);font-size:0.9rem">Nairobi, Kenya</p>
+      </nav>
+    </div>
+  </header>
+  <main>
+    
+  <section class="page-hero"><div class="page-hero-inner page-wrap">
+    <p class="kicker">Portfolio</p>
+    <h1 class="display text-display">Selected Work</h1>
+    <p>Real websites built for real Nairobi businesses. Every project is crafted with care, precision and a relentless focus on results.</p>
+  </div></section>
+  <section class="page-wrap section">
+    <div class="filters">
+      <button class="filt active" data-filter="all" type="button">All Projects</button>
+      <button class="filt" data-filter="beauty" type="button">Beauty & Wellness</button>
+      <button class="filt" data-filter="business" type="button">Business</button>
+      <button class="filt" data-filter="restaurant" type="button">Restaurant</button>
+      <button class="filt" data-filter="portfolio" type="button">Portfolio / CV</button>
+    </div>
+    <article class="prow" data-cat="beauty">
+      <div><img src="projects/wanjiku.jpg" alt=""/></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Beauty & Wellness</span><span class="tag">Live</span><span class="tag">Multi-Page</span><span class="tag">Gallery</span></div>
+        <p class="client-label">Client // Wanjiku Mwangi · Nairobi</p>
+        <h3>Wanjiku's Beauty Hub</h3>
+        <p>A complete 5-page salon website featuring a cinematic hero banner, 3-column services grid, masonry photo gallery with lightbox, booking form, team section, FAQ accordion and full price list. Built in pure HTML, CSS & JavaScript.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="https://muiastephen419-netizen.github.io/wanjiku-s-beauty-hub/" target="_blank" rel="noreferrer">View live site →</a></div>
       </div>
-
-      <!-- Grid -->
-      <div class="projects-grid" id="projectsGrid">
-
-        <!-- 1 — WANJIKU (FEATURED) -->
-        <div class="pcard featured" data-cat="beauty">
-          <div class="pcard-img-wrap">
-            <img class="pcard-img" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&q=80" alt="Wanjiku's Beauty Hub"/>
-          </div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag">Beauty & Wellness</span>
-              <span class="tag green">Live</span>
-              <span class="tag">Multi-Page</span>
-              <span class="tag">Gallery</span>
-            </div>
-            <h3>Wanjiku's Beauty Hub</h3>
-            <p>A complete 5-page salon website featuring a cinematic hero banner, 3-column services grid, masonry photo gallery with lightbox, booking form, team section, FAQ accordion and full price list. Built in pure HTML, CSS & JavaScript.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">CLIENT // Wanjiku Mwangi · Nairobi</span>
-              <a href="https://muiastephen419-netizen.github.io/wanjiku-s-beauty-hub/" target="_blank" class="pcard-link">View Live Site →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 2 — MAMA OLIECH RESTAURANT (FEATURED) -->
-        <div class="pcard featured" data-cat="restaurant">
-          <div class="pcard-img-wrap">
-            <img class="pcard-img" src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=900&q=80" alt="Mama Oliech Restaurant"/>
-          </div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag">Restaurant</span>
-              <span class="tag green">Live</span>
-              <span class="tag">Multi-Page</span>
-              <span class="tag">Reservations</span>
-            </div>
-            <h3>Mama Oliech Restaurant</h3>
-            <p>A warm, mouth-watering 5-page restaurant website featuring a cinematic hero, full menu with filter tabs, table reservation system, masonry photo gallery with lightbox, contact form and FAQ. Built for Nairobi's most beloved Kenyan cuisine spot.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">CLIENT // Mama Oliech · Nairobi</span>
-              <a href="https://muiastephen419-netizen.github.io/mama-oliech-restaurant/" target="_blank" class="pcard-link">View Live Site →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3 — GROVEWELL (FEATURED) -->
-        <div class="pcard featured" data-cat="business">
-          <div class="pcard-img-wrap">
-            <img class="pcard-img" src="grovewell/homes/hero.jpg" alt="Grovewell eco-homes brokerage"/>
-          </div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag">Business / Real Estate</span>
-              <span class="tag green">Live</span>
-              <span class="tag">Multi-Page</span>
-              <span class="tag">Listings</span>
-            </div>
-            <h3>Grovewell</h3>
-            <p>A sample eco-homes brokerage with a sage forest frame, cinematic hero, overlapping search bar, six illustrated listings with filters, property walkthrough requests, residences and a contact desk. Built in HTML, CSS & JavaScript for GitHub Pages.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">SAMPLE // Eco-homes brokerage</span>
-              <a href="grovewell/index.html" class="pcard-link">View Live Site →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 4 — GLOW BY YVONNE (FEATURED) -->
-        <div class="pcard featured" data-cat="beauty">
-          <div class="pcard-img-wrap">
-            <img class="pcard-img" src="https://glowstudio-jikdvtjs.manus.space/manus-storage/glow-hero-reference_c54e0db1.jpg" alt="Glow by Yvonne — Lash Studio Nairobi"/>
-          </div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag">Beauty & Wellness</span>
-              <span class="tag green">Live</span>
-              <span class="tag">Single-Page</span>
-              <span class="tag">WhatsApp Booking</span>
-            </div>
-            <h3>Glow by Yvonne</h3>
-            <p>Elegant single-page lash studio site with soft cream palette, full service menu & pricing (Classic to Volume Wispy + Lift & Tint), mobile-friendly layout, and one-tap WhatsApp booking. Built for a Nairobi lash artist who values natural definition over the mask.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">CLIENT // Yvonne · Nairobi</span>
-              <a href="glow-by-yvonne/index.html" class="pcard-link">View Live Site →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 5 — OPEN SLOT: Portfolio -->
-        <div class="pcard" data-cat="portfolio">
-          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#1a1a0a,#111820);">💼</div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag orange">Open Slot</span>
-              <span class="tag">Portfolio / CV</span>
-            </div>
-            <h3>Personal Portfolio / CV Site</h3>
-            <p>A sleek personal website to showcase your skills, projects and CV — perfect for job seekers and freelancers wanting to stand out.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">SLOT // Available</span>
-              <a href="contact.html" class="pcard-link">Get a Quote →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- 6 — OPEN SLOT: Beauty -->
-        <div class="pcard" data-cat="beauty">
-          <div class="pcard-placeholder" style="background:linear-gradient(135deg,#1a0d18,#111820);">💅</div>
-          <div class="pcard-body">
-            <div class="pcard-tags">
-              <span class="tag orange">Open Slot</span>
-              <span class="tag">Beauty & Wellness</span>
-            </div>
-            <h3>Spa / Barbershop / Clinic</h3>
-            <p>Elegant website for wellness businesses — service menu, booking system, photo gallery and testimonials to attract more clients.</p>
-            <div class="pcard-footer">
-              <span class="pcard-client">SLOT // Available</span>
-              <a href="contact.html" class="pcard-link">Get a Quote →</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- ADD NEW card -->
-        <div class="add-guide" data-cat="all">
-          <span class="add-icon">＋</span>
-          <h4>Your Project Here</h4>
-          <p>This slot is open for the next client. Ready to take your business online? Let's build something amazing together.</p>
-          <a href="contact.html" class="btn-primary">Start a Project →</a>
-        </div>
-
+    </article>
+<article class="prow" data-cat="business">
+      <div><img src="projects/grovewell.jpg" alt=""/></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Business / Real Estate</span><span class="tag">Live</span><span class="tag">Multi-Page</span><span class="tag">Listings</span></div>
+        <p class="client-label">Client // Sample · Eco-homes brokerage</p>
+        <h3>Grovewell</h3>
+        <p>A sample eco-homes brokerage with a sage forest frame, cinematic hero, overlapping search bar, six illustrated listings with filters, property walkthrough requests, residences and a contact desk. Built in HTML, CSS & JavaScript for GitHub Pages.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="grovewell/index.html" >View live site →</a></div>
       </div>
+    </article>
+<article class="prow" data-cat="beauty">
+      <div><img src="projects/glow.jpg" alt=""/></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Beauty & Wellness</span><span class="tag">Live</span><span class="tag">Single-Page</span><span class="tag">WhatsApp Booking</span></div>
+        <p class="client-label">Client // Yvonne · Nairobi</p>
+        <h3>Glow by Yvonne</h3>
+        <p>Elegant single-page lash studio site with soft cream palette, full service menu & pricing (Classic to Volume Wispy + Lift & Tint), mobile-friendly layout, and one-tap WhatsApp booking. Built for a Nairobi lash artist who values natural definition over the mask.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="glow-by-yvonne/index.html" >View live site →</a></div>
+      </div>
+    </article>
+<article class="prow" data-cat="restaurant">
+      <div><img src="projects/mama-oliech.jpg" alt=""/></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Restaurant</span><span class="tag">Live</span><span class="tag">Multi-Page</span><span class="tag">Reservations</span></div>
+        <p class="client-label">Client // Mama Oliech · Nairobi</p>
+        <h3>Mama Oliech Restaurant</h3>
+        <p>A warm, mouth-watering 5-page restaurant website featuring a cinematic hero, full menu with filter tabs, table reservation system, masonry photo gallery with lightbox, contact form and FAQ. Built for Nairobi's most beloved Kenyan cuisine spot.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="https://muiastephen419-netizen.github.io/mama-oliech-restaurant/" target="_blank" rel="noreferrer">View live site →</a></div>
+      </div>
+    </article>
+<article class="prow" data-cat="portfolio">
+      <div><div style="min-height:16rem;display:grid;place-items:center;background:var(--paper)"><span class="display" style="font-size:4rem;color:rgba(17,17,17,0.12)">T.</span></div></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Open Slot</span><span class="tag">Portfolio / CV</span></div>
+        <p class="client-label">Client // Slot · Available</p>
+        <h3>Personal Portfolio / CV Site</h3>
+        <p>A sleek personal website to showcase your skills, projects and CV — perfect for job seekers and freelancers wanting to stand out.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="contact.html" >Get a quote →</a></div>
+      </div>
+    </article>
+<article class="prow" data-cat="beauty">
+      <div><div style="min-height:16rem;display:grid;place-items:center;background:var(--paper)"><span class="display" style="font-size:4rem;color:rgba(17,17,17,0.12)">T.</span></div></div>
+      <div class="prow-body">
+        <div class="tags"><span class="tag">Open Slot</span><span class="tag">Beauty & Wellness</span></div>
+        <p class="client-label">Client // Slot · Available</p>
+        <h3>Spa / Barbershop / Clinic</h3>
+        <p>Elegant website for wellness businesses — service menu, booking system, photo gallery and testimonials to attract more clients.</p>
+        <div style="margin-top:1.5rem"><a class="btn-talk" href="contact.html" >Get a quote →</a></div>
+      </div>
+    </article>
+    <div class="dashed">
+      <h3 class="display" style="font-size:1.85rem;margin:0">Your project here</h3>
+      <p style="max-width:28rem;margin:0.5rem auto 0;color:var(--muted);font-size:0.9rem">This slot is open for the next client. Ready to take your business online? Let's build something amazing together.</p>
+      <a class="btn-talk" href="contact.html" style="margin-top:1.25rem">Start a project</a>
     </div>
   </section>
-
-  <footer class="site-footer">
-    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
-    <ul class="footer-nav">
-      <li><a href="about.html">About</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  
+  </main>
+  <footer>
+    <div class="foot-grid">
+      <a class="cta-block" href="contact.html">
+        <h2 class="display text-display">Let's create something great together.</h2>
+        <span class="cta-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <div class="foot-info">
+        <div>
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:muiastephen419@gmail.com">muiastephen419@gmail.com</a></li>
+            <li><a href="https://wa.me/254793755230">+254 793 755 230</a></li>
+            <li>Nairobi, Kenya<br/>Kumpa Off-Namanga Road</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <ul>
+            <li><a href="https://github.com/muiastephen419-netizen" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://wa.me/254793755230" target="_blank" rel="noreferrer">WhatsApp</a></li>
+            <li><a href="testimonials.html">Client reviews</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span>© 2026 Tekashi Designs</span>
+      <span>All rights reserved</span>
+    </div>
   </footer>
-
-  <script src="cursor.js"></script>
-  <script>
-    function filterCards(btn, cat) {
-      document.querySelectorAll('.filt').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelectorAll('#projectsGrid > *').forEach(card => {
-        const c = card.dataset.cat;
-        card.style.display = (cat === 'all' || c === cat || c === 'all') ? '' : 'none';
-      });
-    }
-  </script>
+  
+  <script src="site.js"></script>
 </body>
 </html>

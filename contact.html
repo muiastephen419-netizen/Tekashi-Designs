@@ -4,266 +4,129 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact — Tekashi Designs | Hire a Web Designer Nairobi</title>
-  <meta name="description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
-  <meta name="keywords" content="contact web designer Nairobi, hire web designer Kenya, Tekashi Designs contact, WhatsApp web designer Nairobi"/>
+  <meta name="description" content="Get in touch with Tekashi Designs. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa."/>
   <meta name="author" content="Tekashi Designs — Stephen Sila"/>
-  <meta name="robots" content="index, follow"/>
-  <meta property="og:title" content="Contact — Tekashi Designs | Hire a Web Designer Nairobi"/>
-  <meta property="og:description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
-  <meta property="og:url" content="https://muiastephen419-netizen.github.io/Tekashi-Designs/contact.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:locale" content="en_KE"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Contact — Tekashi Designs | Hire a Web Designer Nairobi"/>
-  <meta name="twitter:description" content="Get in touch with Tekashi Designs to start your website project. WhatsApp +254 793 755 230. Free consultation. Pay via M-Pesa. Based in Nairobi, Kenya."/>
+  <meta name="theme-color" content="#e10600"/>
   <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <style>
-    /* ── CONTACT LAYOUT ── */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
-
-    /* INFO SIDE */
-    .info-side { position: sticky; top: 6rem; }
-    .info-side > p { font-size: 0.95rem; color: var(--gray); line-height: 1.9; margin-bottom: 2rem; }
-    .c-cards { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2.5rem; }
-    .c-card {
-      background: var(--bg2); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.2rem 1.5rem;
-      display: flex; align-items: center; gap: 1.2rem;
-      text-decoration: none; transition: border-color 0.2s, transform 0.2s;
-    }
-    .c-card:hover { border-color: var(--cyan); transform: translateX(4px); }
-    .c-card-icon {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: var(--cyan-dim); border: 1px solid rgba(0,229,255,0.2);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-    }
-    .c-card-text strong { display: block; font-size: 0.78rem; font-weight: 700; color: var(--white); margin-bottom: 0.1rem; }
-    .c-card-text span { font-family: var(--font-mono); font-size: 0.72rem; color: var(--gray); }
-    /* Social */
-    .social-row { display: flex; gap: 0.8rem; }
-    .soc-btn {
-      width: 44px; height: 44px; border-radius: 10px;
-      background: var(--bg2); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; text-decoration: none;
-      transition: border-color 0.2s, transform 0.2s, background 0.2s;
-    }
-    .soc-btn:hover { border-color: var(--cyan); background: var(--cyan-dim); transform: translateY(-3px); }
-    /* Availability badge */
-    .avail-badge {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-family: var(--font-mono); font-size: 0.68rem;
-      color: var(--green); letter-spacing: 2px; text-transform: uppercase;
-      padding: 0.5rem 1rem; border: 1px solid rgba(57,255,20,0.25);
-      border-radius: 4px; background: rgba(57,255,20,0.06); margin-bottom: 2rem;
-    }
-    .avail-dot { width: 7px; height: 7px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
-
-    /* FORM SIDE */
-    .form-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      border-radius: 16px; padding: 2.5rem;
-    }
-    .form-card h3 { font-family: var(--font-head); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.2rem; }
-    .form-card > .mono { font-family: var(--font-mono); font-size: 0.65rem; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2rem; display: block; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-submit {
-      width: 100%; padding: 1.1rem;
-      background: var(--cyan); color: var(--bg);
-      border: none; border-radius: 8px;
-      font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer;
-      margin-top: 0.5rem; transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .form-submit:hover { box-shadow: 0 0 32px var(--cyan-glow); transform: translateY(-2px); }
-    .form-success {
-      display: none; padding: 1rem; margin-top: 1rem;
-      background: rgba(57,255,20,0.08); border: 1px solid rgba(57,255,20,0.25);
-      border-radius: 6px; font-family: var(--font-mono); font-size: 0.75rem;
-      color: var(--green); letter-spacing: 1px; text-align: center;
-    }
-    /* Budget selector */
-    .budget-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 0.6rem; }
-    .budget-btn {
-      padding: 0.6rem; border-radius: 6px; border: 1px solid var(--border);
-      background: var(--bg2); color: var(--gray);
-      font-family: var(--font-mono); font-size: 0.65rem;
-      letter-spacing: 1px; text-transform: uppercase; cursor: pointer;
-      transition: all 0.2s; text-align: center;
-    }
-    .budget-btn:hover, .budget-btn.active { border-color: var(--cyan); color: var(--cyan); background: var(--cyan-dim); }
-
-    @media (max-width: 900px) {
-      .contact-grid { grid-template-columns: 1fr; }
-      .info-side { position: static; }
-    }
-    @media (max-width: 500px) {
-      .form-row { grid-template-columns: 1fr; }
-      .budget-row { grid-template-columns: 1fr 1fr; }
-      .form-card { padding: 1.5rem; }
-    }
-  </style>
 </head>
 <body>
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
-
-  <nav class="site-nav" id="nav">
-    <a href="index.html" class="nav-logo"><span class="br">[</span>tekashi<span class="br">]</span></a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="process.html">Process</a></li>
-      <li><a href="testimonials.html">Reviews</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-hire">Hire Me</a>
-  </nav>
-
-  <div class="page-hero">
-    <div class="page-hero-inner">
-      <div class="s-label">Let's Build</div>
-      <h1 class="page-title">Get In <span class="accent">Touch</span></h1>
-      <p class="page-subtitle">Have a project in mind? Drop me a message and I'll get back to you within 24 hours. Free consultations always available.</p>
-    </div>
-  </div>
-
-  <section class="section">
-    <div class="container">
-      <div class="contact-grid">
-
-        <!-- INFO -->
-        <div class="info-side">
-          <div class="s-label">Contact Info</div>
-          <h2 class="s-title">Let's Talk</h2>
-          <div class="s-line"></div>
-
-          <div class="avail-badge">
-            <span class="avail-dot"></span>
-            Available for new projects
-          </div>
-
-          <p>The fastest way to reach me is WhatsApp. I'm usually online Monday–Saturday and respond within a few hours.</p>
-
-          <div class="c-cards">
-            <a href="https://wa.me/254793755230" target="_blank" class="c-card">
-              <div class="c-card-icon">💬</div>
-              <div class="c-card-text">
-                <strong>WhatsApp (Fastest)</strong>
-                <span>+254 793 755 230</span>
-              </div>
-            </a>
-            <a href="/cdn-cgi/l/email-protection#a4c9d1cdc5d7d0c1d4ccc1ca90959de4c3c9c5cdc88ac7cbc9" class="c-card">
-              <div class="c-card-icon">✉</div>
-              <div class="c-card-text">
-                <strong>Email</strong>
-                <span><span class="__cf_email__" data-cfemail="c7aab2aea6b4b3a2b7afa2a9f3f6fe87a0aaa6aeabe9a4a8aa">[email&#160;protected]</span></span>
-              </div>
-            </a>
-            <a href="https://github.com/muiastephen419-netizen" target="_blank" class="c-card">
-              <div class="c-card-icon">⌥</div>
-              <div class="c-card-text">
-                <strong>GitHub</strong>
-                <span>muiastephen419-netizen</span>
-              </div>
-            </a>
-            <div class="c-card" style="cursor:default;">
-              <div class="c-card-icon">📍</div>
-              <div class="c-card-text">
-                <strong>Location</strong>
-                <span>Nairobi, Kenya</span>
-              </div>
-            </div>
-            <div class="c-card" style="cursor:default;">
-              <div class="c-card-icon">🕐</div>
-              <div class="c-card-text">
-                <strong>Response Time</strong>
-                <span>Within 24 hours</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="social-row">
-            <a href="https://wa.me/254793755230" target="_blank" class="soc-btn" title="WhatsApp">💬</a>
-            <a href="/cdn-cgi/l/email-protection#c8a5bda1a9bbbcadb8a0ada6fcf9f188afa5a9a1a4e6aba7a5" class="soc-btn" title="Email">✉</a>
-            <a href="https://github.com/muiastephen419-netizen" target="_blank" class="soc-btn" title="GitHub">⌥</a>
-          </div>
-        </div>
-
-        <!-- FORM -->
-        <div class="form-card">
-          <h3>Send a Message</h3>
-          <span class="mono">// new_project_inquiry.js</span>
-
-          <div class="form-row">
-            <div class="form-group"><label>Your Name</label><input class="form-input" type="text" placeholder="e.g. Jane Wanjiru" id="cname"/></div>
-            <div class="form-group"><label>Phone / WhatsApp</label><input class="form-input" type="tel" placeholder="+254 7XX XXX XXX"/></div>
-          </div>
-
-          <div class="form-group">
-            <label>Email Address</label>
-            <input class="form-input" type="email" placeholder="your@email.com"/>
-          </div>
-
-          <div class="form-group">
-            <label>Type of Website</label>
-            <select class="form-select">
-              <option value="">Choose project type</option>
-              <option>Business / Corporate Website</option>
-              <option>Beauty Salon / Spa</option>
-              <option>Restaurant / Food Business</option>
-              <option>Personal Portfolio / CV</option>
-              <option>E-Commerce / Online Store</option>
-              <option>Event / Wedding</option>
-              <option>Church / Organisation</option>
-              <option>Barbershop / Clinic</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label>Budget Range</label>
-            <div class="budget-row">
-              <button class="budget-btn" onclick="selectBudget(this)">KES 5K</button>
-              <button class="budget-btn" onclick="selectBudget(this)">KES 10–15K</button>
-              <button class="budget-btn" onclick="selectBudget(this)">KES 20K+</button>
-              <button class="budget-btn" onclick="selectBudget(this)">Not Sure</button>
-              <button class="budget-btn" onclick="selectBudget(this)">Let's Discuss</button>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label>Project Details</label>
-            <textarea class="form-textarea" placeholder="Tell me about your business and what you need the website to do..."></textarea>
-          </div>
-
-          <button class="form-submit" onclick="sendMsg()">⚡ Send Message</button>
-          <div class="form-success" id="formSuccess">
-            ✓ Message received! I'll WhatsApp you within 24 hours.
-          </div>
-        </div>
-
+  <header class="site-header">
+    <div class="page-wrap header-inner">
+      <a class="logo" href="index.html">T<span class="text-accent">.</span></a>
+      <nav class="nav-desktop" aria-label="Primary">
+          <a class="nav-link" href="work.html">Work</a>
+          <a class="nav-link" href="index.html#services">Services</a>
+          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link" href="process.html">Experience</a>
+          <a class="nav-link is-active" href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a class="btn-talk" href="contact.html">Let's Talk <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu">☰</button>
       </div>
     </div>
+    <div class="mobile-nav" id="mobileNav">
+      <nav class="page-wrap" aria-label="Mobile">
+        <a href="work.html">Work</a>
+        <a href="index.html#services">Services</a>
+        <a href="about.html">About</a>
+        <a href="process.html">Experience</a>
+        <a href="contact.html">Contact</a>
+        <p style="padding:0.5rem 0 1rem;color:var(--muted);font-size:0.9rem">Nairobi, Kenya</p>
+      </nav>
+    </div>
+  </header>
+  <main>
+    
+  <section class="page-hero"><div class="page-hero-inner page-wrap">
+    <p class="kicker">Let's build</p>
+    <h1 class="display text-display">Get in Touch</h1>
+    <p>Have a project in mind? Drop me a message and I'll get back to you within 24 hours. Free consultations always available.</p>
+  </div></section>
+  <section class="page-wrap contact-grid">
+    <div>
+      <p class="kicker">Contact info</p>
+      <h2 class="display text-section">Let's talk</h2>
+      <div class="rule"></div>
+      <p class="avail" style="margin-top:1.5rem"><span class="dot"></span> Available for new projects</p>
+      <p style="margin:1.25rem 0 0;max-width:28rem;font-size:0.9rem;line-height:1.7;color:var(--muted)">The fastest way to reach me is WhatsApp. I'm usually online Monday–Saturday and respond within a few hours.</p>
+      <div style="margin-top:2rem">
+        <a class="c-row" href="https://wa.me/254793755230" target="_blank" rel="noreferrer"><span class="c-ico">💬</span><span><strong style="display:block;font-size:0.9rem">WhatsApp (Fastest)</strong><span style="color:var(--muted);font-size:0.9rem">+254 793 755 230</span></span></a>
+        <a class="c-row" href="mailto:muiastephen419@gmail.com"><span class="c-ico">✉</span><span><strong style="display:block;font-size:0.9rem">Email</strong><span style="color:var(--muted);font-size:0.9rem">muiastephen419@gmail.com</span></span></a>
+        <a class="c-row" href="https://github.com/muiastephen419-netizen" target="_blank" rel="noreferrer"><span class="c-ico">⌥</span><span><strong style="display:block;font-size:0.9rem">GitHub</strong><span style="color:var(--muted);font-size:0.9rem">muiastephen419-netizen</span></span></a>
+        <div class="c-row"><span class="c-ico">📍</span><span><strong style="display:block;font-size:0.9rem">Location</strong><span style="color:var(--muted);font-size:0.9rem">Nairobi, Kenya</span></span></div>
+        <div class="c-row"><span class="c-ico">🕐</span><span><strong style="display:block;font-size:0.9rem">Response time</strong><span style="color:var(--muted);font-size:0.9rem">Within 24 hours</span></span></div>
+      </div>
+    </div>
+    <form class="form-card" id="contactForm">
+      <h3 style="margin:0;font-size:1.25rem;font-weight:800">Send a message</h3>
+      <p class="mono" style="margin:0.35rem 0 0">New project inquiry</p>
+      <div class="form-2" style="margin-top:1.5rem">
+        <label><span class="field-label">Your name</span><input class="field" name="name" required placeholder="e.g. Jane Wanjiru"/></label>
+        <label><span class="field-label">Phone / WhatsApp</span><input class="field" name="phone" placeholder="+254 7XX XXX XXX"/></label>
+      </div>
+      <label style="display:block;margin-top:1rem"><span class="field-label">Email address</span><input class="field" type="email" name="email" placeholder="your@email.com"/></label>
+      <label style="display:block;margin-top:1rem"><span class="field-label">Type of website</span>
+        <select class="field" name="type">
+          <option value="">Choose project type</option>
+          <option>Business / Corporate Website</option>
+          <option>Beauty Salon / Spa</option>
+          <option>Restaurant / Food Business</option>
+          <option>Personal Portfolio / CV</option>
+          <option>E-Commerce / Online Store</option>
+          <option>Event / Wedding</option>
+          <option>Church / Organisation</option>
+          <option>Barbershop / Clinic</option>
+          <option>Other</option>
+        </select>
+      </label>
+      <fieldset style="border:0;padding:0;margin:1rem 0 0">
+        <legend class="field-label">Budget range</legend>
+        <input type="hidden" name="budget" id="budgetValue"/>
+        <div class="budget-row">
+          <button class="budget-btn" type="button" data-budget="KES 5K">KES 5K</button><button class="budget-btn" type="button" data-budget="KES 10–15K">KES 10–15K</button><button class="budget-btn" type="button" data-budget="KES 20K+">KES 20K+</button><button class="budget-btn" type="button" data-budget="Not Sure">Not Sure</button><button class="budget-btn" type="button" data-budget="Let's Discuss">Let's Discuss</button>
+        </div>
+      </fieldset>
+      <label style="display:block;margin-top:1rem"><span class="field-label">Project details</span><textarea class="field" name="details" rows="5" placeholder="Tell me about your business and what you need the website to do..."></textarea></label>
+      <button class="btn-talk" type="submit" style="margin-top:1.25rem;width:100%;justify-content:center">Send message</button>
+      <p id="formOk" style="display:none;margin:1rem 0 0;text-align:center;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent)">Opening WhatsApp — I'll reply within 24 hours.</p>
+    </form>
   </section>
-
-  <footer class="site-footer">
-    <div class="footer-logo"><span class="br">[</span>tekashi<span class="br">]</span> designs</div>
-    <ul class="footer-nav">
-      <li><a href="about.html">About</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <div class="footer-copy">&copy; 2026 Tekashi Designs · Nairobi, Kenya</div>
+  
+  </main>
+  <footer>
+    <div class="foot-grid">
+      <a class="cta-block" href="contact.html">
+        <h2 class="display text-display">Let's create something great together.</h2>
+        <span class="cta-arrow"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <div class="foot-info">
+        <div>
+          <h3>Get in touch</h3>
+          <ul>
+            <li><a href="mailto:muiastephen419@gmail.com">muiastephen419@gmail.com</a></li>
+            <li><a href="https://wa.me/254793755230">+254 793 755 230</a></li>
+            <li>Nairobi, Kenya<br/>Kumpa Off-Namanga Road</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Follow</h3>
+          <ul>
+            <li><a href="https://github.com/muiastephen419-netizen" target="_blank" rel="noreferrer">GitHub</a></li>
+            <li><a href="https://wa.me/254793755230" target="_blank" rel="noreferrer">WhatsApp</a></li>
+            <li><a href="testimonials.html">Client reviews</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-copy">
+      <span>© 2026 Tekashi Designs</span>
+      <span>All rights reserved</span>
+    </div>
   </footer>
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="cursor.js"></script>
-  <script>
-    function selectBudget(btn) {
-      document.querySelectorAll('.budget-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-    function sendMsg() {
-      const name = document.getElementById('cname').valu
+  
+  <script src="site.js"></script>
+</body>
+</html>
