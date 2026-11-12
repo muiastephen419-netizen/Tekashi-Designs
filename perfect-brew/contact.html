@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Location | Perfect Brew Café</title>
+  <meta name="description" content="Visit Perfect Brew Café. Find our address, opening hours, phone number, and send us a message. Order ahead or just drop by.">
+  <meta property="og:title" content="Contact — Perfect Brew Café">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Perfect <span>Brew</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html" class="active">Contact</a>
+        <a href="#order" class="btn btn-primary">Order Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">Our Story</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="#order" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact & Location</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> · Contact</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Info + Map -->
+        <div class="contact-info">
+          <h3>Come Visit Us</h3>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Address</h4>
+              <p>42 Oak Street, Riverside District<br>Open daily — street parking available</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🕐</div>
+            <div>
+              <h4>Opening Hours</h4>
+              <p>Mon – Fri: 7:00 AM – 7:00 PM<br>
+                 Saturday: 8:00 AM – 8:00 PM<br>
+                 Sunday: 8:00 AM – 5:00 PM</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📞</div>
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+15551234567">(555) 123-4567</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">✉️</div>
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:hello@perfectbrew.cafe">hello@perfectbrew.cafe</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🌐</div>
+            <div>
+              <h4>Social</h4>
+              <p>
+                <a href="#">Instagram</a> · 
+                <a href="#">Facebook</a> · 
+                <a href="#">Twitter</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <iframe 
+              src="https://maps.google.com/maps?q=coffee%20shop&t=&z=14&ie=UTF8&iwloc=&output=embed" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Perfect Brew Café location map">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div id="order">
+          <div class="contact-form">
+            <h3 style="margin-bottom:0.4rem;color:var(--espresso);">Send a Message</h3>
+            <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1.5rem;">Questions, catering, or just say hello — we’d love to hear from you.</p>
+
+            <form id="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" placeholder=" " required>
+                <label>Your Name</label>
+              </div>
+              <div class="form-group">
+                <input type="email" name="email" placeholder=" " required>
+                <label>Email Address</label>
+              </div>
+              <div class="form-group">
+                <select name="subject" required>
+                  <option value="" disabled selected></option>
+                  <option value="general">General Inquiry</option>
+                  <option value="order">Order / Catering</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+                <label>Subject</label>
+              </div>
+              <div class="form-group">
+                <textarea name="message" placeholder=" " required></textarea>
+                <label>Message</label>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+            </form>
+
+            <div class="form-success">
+              <div class="check">✓</div>
+              <h3>Message Sent!</h3>
+              <p>Thank you. We’ll get back to you within 24 hours.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem;text-align:center;">
+            <a href="menu.html" class="btn btn-dark">View Full Menu</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color:var(--cream)">Perfect <span>Brew</span></a>
+          <p>Specialty coffee roasted with care. A warm place for quiet mornings and good company.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Opening Hours</h4>
+          <div class="footer-hours">
+            <p>Mon – Fri: 7:00 AM – 7:00 PM</p>
+            <p>Saturday: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 8:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p style="opacity:0.8;font-size:0.9rem;margin-bottom:0.6rem;">New drinks, events & specials — straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined!';">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Perfect Brew Café. All rights reserved.</p>
+        <p>Crafted with ☕ in the city.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
