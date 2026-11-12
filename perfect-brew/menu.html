@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Perfect Brew Café</title>
+  <meta name="description" content="Explore our full menu — espresso, milk coffees, cold drinks and freshly baked pastries. Prices and descriptions for every item.">
+  <meta property="og:title" content="Menu — Perfect Brew Café">
+  <meta property="og:description" content="Espresso, lattes, cold brew, pastries and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Perfect <span>Brew</span></a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html#order" class="btn btn-primary">Order Now</a>
+      </nav>
+      <button class="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <a href="index.html">Home</a>
+    <a href="menu.html" class="active">Menu</a>
+    <a href="about.html">Our Story</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html#order" class="btn btn-primary">Order Now</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Our Menu</h1>
+      <p class="breadcrumb"><a href="index.html">Home</a> · Menu</p>
+    </div>
+  </section>
+
+  <!-- Sticky Category Tabs -->
+  <div class="menu-categories">
+    <div class="container">
+      <div class="cat-tabs">
+        <button class="cat-tab active" data-category="all">All</button>
+        <button class="cat-tab" data-category="espresso">Espresso</button>
+        <button class="cat-tab" data-category="milk">Milk Coffees</button>
+        <button class="cat-tab" data-category="cold">Cold Drinks</button>
+        <button class="cat-tab" data-category="pastries">Pastries</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-content container" style="padding-bottom:5rem;">
+    <!-- Espresso -->
+    <section class="menu-section" id="espresso">
+      <h2>☕ Espresso</h2>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500&q=80" alt="Espresso shot" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Single Espresso</h3>
+              <span class="price">$3.50</span>
+            </div>
+            <p>Rich, concentrated single-origin shot with a golden crema.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500&q=80" alt="Double espresso" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Double Espresso</h3>
+              <span class="price">$4.25</span>
+            </div>
+            <p>Two perfect shots for those who need a stronger start.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?w=500&q=80" alt="Americano" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Americano</h3>
+              <span class="price">$4.00</span>
+            </div>
+            <p>Espresso stretched with hot water. Clean and bold.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Macchiato" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Macchiato</h3>
+              <span class="price">$4.50</span>
+            </div>
+            <p>Espresso “stained” with a dollop of microfoam.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Milk Coffees -->
+    <section class="menu-section" id="milk">
+      <h2>🥛 Milk Coffees</h2>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?w=500&q=80" alt="Latte with art" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Latte</h3>
+              <span class="price">$5.25</span>
+            </div>
+            <p>Espresso + steamed milk, finished with delicate latte art.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80" alt="Cappuccino" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Cappuccino</h3>
+              <span class="price">$5.00</span>
+            </div>
+            <p>Equal parts espresso, steamed milk and airy foam.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1534778100214-4e0f4c2a2d2e?w=500&q=80" alt="Flat white" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Flat White</h3>
+              <span class="price">$5.50</span>
+            </div>
+            <p>Ristretto shots with silky microfoam — our signature.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80" alt="Mocha" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Mocha</h3>
+              <span class="price">$5.75</span>
+            </div>
+            <p>Espresso, rich chocolate and steamed milk. Indulgent.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cold Drinks -->
+    <section class="menu-section" id="cold">
+      <h2>🧊 Cold Drinks</h2>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1517701550927-30c8b2b2b3a2?w=500&q=80" alt="Cold brew" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Cold Brew</h3>
+              <span class="price">$5.00</span>
+            </div>
+            <p>18-hour steep. Smooth, low acidity, naturally sweet.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&q=80" alt="Iced latte" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Iced Latte</h3>
+              <span class="price">$5.50</span>
+            </div>
+            <p>Espresso over ice with cold milk. Refreshing and creamy.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=500&q=80" alt="Iced americano" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Iced Americano</h3>
+              <span class="price">$4.50</span>
+            </div>
+            <p>Double espresso poured over ice and water.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&q=80" alt="Nitro cold brew" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Nitro Cold Brew</h3>
+              <span class="price">$5.75</span>
+            </div>
+            <p>Infused with nitrogen for a creamy, cascading texture.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Pastries -->
+    <section class="menu-section" id="pastries">
+      <h2>🥐 Pastries</h2>
+      <div class="menu-grid">
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=500&q=80" alt="Butter croissant" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Butter Croissant</h3>
+              <span class="price">$3.75</span>
+            </div>
+            <p>Flaky, buttery layers baked fresh every morning.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=500&q=80" alt="Almond croissant" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Almond Croissant</h3>
+              <span class="price">$4.50</span>
+            </div>
+            <p>Filled with almond cream and topped with sliced almonds.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=500&q=80" alt="Blueberry muffin" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Blueberry Muffin</h3>
+              <span class="price">$3.50</span>
+            </div>
+            <p>Soft, moist muffin bursting with fresh blueberries.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+        <article class="menu-item">
+          <div class="menu-item-img">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500&q=80" alt="Banana bread" loading="lazy">
+          </div>
+          <div class="menu-item-body">
+            <div class="menu-item-header">
+              <h3>Banana Bread</h3>
+              <span class="price">$3.25</span>
+            </div>
+            <p>House-made with ripe bananas and a hint of cinnamon.</p>
+            <button class="add-btn">Add to order</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="color:var(--cream)">Perfect <span>Brew</span></a>
+          <p>Specialty coffee roasted with care. A warm place for quiet mornings and good company.</p>
+          <div class="socials">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="Facebook">📘</a>
+            <a href="#" aria-label="Twitter">🐦</a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="about.html">Our Story</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Opening Hours</h4>
+          <div class="footer-hours">
+            <p>Mon – Fri: 7:00 AM – 7:00 PM</p>
+            <p>Saturday: 8:00 AM – 8:00 PM</p>
+            <p>Sunday: 8:00 AM – 5:00 PM</p>
+          </div>
+        </div>
+        <div>
+          <h4>Newsletter</h4>
+          <p style="opacity:0.8;font-size:0.9rem;margin-bottom:0.6rem;">New drinks, events & specials — straight to your inbox.</p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Joined!';">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Join</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Perfect Brew Café. All rights reserved.</p>
+        <p>Crafted with ☕ in the city.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" aria-label="Back to top">↑</button>
+  <script src="js/main.js"></script>
+</body>
+</html>
